@@ -93,26 +93,120 @@ html, body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-/* Hero Section */
+/* Hero Section - contenuto centrato */
 #home .content {
     justify-content: center;
+}
+
+/* Altre sezioni - contenuto inizia dall'alto */
+.section:not(#home) .content {
+    justify-content: flex-start;
+}
+
+/* TITOLO CON EFFETTO HOVER */
+.title-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.5rem;
 }
 
 .main-title {
     font-size: 5.5rem;
     font-weight: 800;
     letter-spacing: -0.03em;
-    margin-bottom: 0.5rem;
     color: var(--white);
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.title-container:hover .main-title {
+    transform: scale(1.05);
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* IMMAGINI FLUTTUANTI */
+.floating-images {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-image {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: scale(0.3) rotate(0deg);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+/* Animazioni al hover */
+.title-container:hover .floating-image {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+.title-container:hover .img-1 {
+    transform: translate(-180px, -100px) scale(1) rotate(-8deg);
+}
+
+.title-container:hover .img-2 {
+    transform: translate(180px, -100px) scale(1) rotate(8deg);
+}
+
+.title-container:hover .img-3 {
+    transform: translate(-180px, 80px) scale(1) rotate(-12deg);
+}
+
+.title-container:hover .img-4 {
+    transform: translate(180px, 80px) scale(1) rotate(12deg);
+}
+
+/* Posizionamento iniziale delle immagini */
+.img-1 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+}
+
+.img-2 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+}
+
+.img-3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+}
+
+.img-4 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
 }
 
 .subtitle {
@@ -121,6 +215,8 @@ html, body {
     color: var(--gray);
     margin-bottom: 4rem;
     letter-spacing: 0.02em;
+    position: relative;
+    z-index: 10;
 }
 
 /* BOTTONI GLASS - Stile come nell'immagine */
@@ -130,6 +226,8 @@ html, body {
     gap: 1.2rem;
     max-width: 500px;
     width: 100%;
+    position: relative;
+    z-index: 10;
 }
 
 .glass-btn {
@@ -398,6 +496,28 @@ cite {
     .glass-card {
         padding: 2rem 1.5rem;
     }
+    
+    /* Immagini più piccole su mobile */
+    .floating-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .title-container:hover .img-1 {
+        transform: translate(-120px, -80px) scale(1) rotate(-8deg);
+    }
+    
+    .title-container:hover .img-2 {
+        transform: translate(120px, -80px) scale(1) rotate(8deg);
+    }
+    
+    .title-container:hover .img-3 {
+        transform: translate(-120px, 60px) scale(1) rotate(-12deg);
+    }
+    
+    .title-container:hover .img-4 {
+        transform: translate(120px, 60px) scale(1) rotate(12deg);
+    }
 }
 
 @media (max-width: 480px) {
@@ -415,5 +535,10 @@ cite {
     
     .btn-text {
         font-size: 0.9rem;
+    }
+    
+    .floating-image {
+        width: 80px;
+        height: 80px;
     }
 }
