@@ -3,99 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenone di Elea | Progetto Liquid Vision</title>
+    <title>Zenone di Elea | Filosofia Antica</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-
-    <section id="hero" class="full-screen-section hero-vision">
-        <div class="animated-liquid-overlay"></div>
+    <!-- Hero Section con Sfondo Animato -->
+    <section id="hero" class="full-screen-section hero-section">
+        <div class="background-slider">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1555099962-4199c345e546?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2067&q=80')"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"></div>
+        </div>
+        
+        <div class="liquid-overlay"></div>
+        
         <div class="hero-content">
-            <h1 class="animate-fade-in-up">Zenone di Elea</h1>
-            <p class="subtitle animate-fade-in-up">I paradossi che sfidarono la realtà.</p>
+            <h1 class="main-title">ZENONE</h1>
+            <p class="subtitle">di Elea · Filosofo Presocratico</p>
             
-            <nav id="vision-menu">
-                <a href="#vita" class="menu-card animate-scale-in">
-                    <i class="fa-solid fa-user-graduate"></i>
-                    <h4>Chi era</h4>
-                    <p>Biografia e il ruolo di discepolo.</p>
+            <nav class="glass-menu">
+                <a href="#vita" class="glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3>La Vita</h3>
+                    <p>Biografia e contesto storico</p>
                 </a>
-                <a href="#paradossi" class="menu-card animate-scale-in delay-1">
-                    <i class="fa-solid fa-infinity"></i>
-                    <h4>I Paradossi</h4>
-                    <p>Dicotomia, Achille e la Freccia.</p>
+                
+                <a href="#paradossi" class="glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>I Paradossi</h3>
+                    <p>Le argomentazioni sul movimento</p>
                 </a>
-                <a href="#risposte" class="menu-card animate-scale-in delay-2">
-                    <i class="fa-solid fa-scale-balanced"></i>
-                    <h4>L'Eredità</h4>
-                    <p>Le risposte di filosofia e scienza.</p>
+                
+                <a href="#eredita" class="glass-card">
+                    <div class="card-icon">
+                        <i class="fas fa-monument"></i>
+                    </div>
+                    <h3>L'Eredità</h3>
+                    <p>Influenza sul pensiero moderno</p>
                 </a>
             </nav>
         </div>
-    </section>
-
-    <section id="vita" class="full-screen-section dark-section">
-        <div class="content-box animate-on-scroll">
-            <p class="section-tag">👤 CHI ERA</p>
-            <div class="split-content">
-                <div class="left-col">
-                    <h3>Il Difensore dell'Uno</h3>
-                    <p>Nato a Elea nel V sec. a.C., Zenone non era un creatore di dottrine, ma un fervente **difensore di Parmenide** e della sua tesi: "tutto è Uno".</p>
-                    <p>La sua missione? Dimostrare che accettare la molteplicità e il movimento porta inevitabilmente a **contraddizioni logiche** insostenibili.</p>
-                </div>
-                <div class="right-col vision-card-small">
-                    <h4>Zenone e la Dialettica</h4>
-                    <p>Aristotele lo considerò l'inventore della **dialettica**, l'arte di confutare una tesi assumendola come vera per poi mostrarne l'assurdità (**dimostrazione per assurdo**).</p>
-                    <a href="#paradossi" class="vision-link">Vedi i Paradossi <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
+        
+        <div class="scroll-indicator">
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+            <div class="chevron"></div>
         </div>
     </section>
 
-    <section id="paradossi" class="full-screen-section light-section">
-        <div class="content-box animate-on-scroll">
-            <p class="section-tag">🔎 I PARADOSSI</p>
-            <h3>L'Illusione del Movimento</h3>
-            <div class="paradosso-grid">
-                <div class="paradosso vision-card-small">
-                    <h4>1. La Dicotomia</h4>
-                    <p>Per muoversi da A a B devi prima coprire la metà, e poi la metà della metà... il movimento **non può iniziare**.</p>
-                </div>
-                <div class="paradosso vision-card-small">
-                    <h4>2. Achille e la Tartaruga</h4>
-                    <p>Achille non raggiungerà mai la tartaruga a causa degli **intervalli infiniti** che deve coprire.</p>
-                </div>
-                <div class="paradosso vision-card-small">
-                    <h4>3. La Freccia Immobile</h4>
-                    <p>Se in ogni istante la freccia è ferma, allora è **sempre immobile**. Il movimento è un'illusione.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="risposte" class="full-screen-section dark-section">
-        <div class="content-box animate-on-scroll">
-            <p class="section-tag">🏛️ EREDITÀ</p>
-            <h3>Le Risposte, dalla Filosofia alla Scienza</h3>
-            <div class="split-content">
-                <div class="left-col vision-card-small">
-                    <h4>Serie Convergenti (Matematica)</h4>
-                    <p>La matematica dimostra che la somma di infiniti intervalli può dare un risultato finito. **Achille raggiunge la tartaruga** in un tempo calcolabile.</p>
-                </div>
-                <div class="right-col vision-card-small">
-                    <h4>Einstein e la Relatività</h4>
-                    <p>I paradossi ci costringono a riconsiderare la nostra percezione di tempo e spazio, proprio come la Relatività ha sfidato il concetto di **simultaneità assoluta**.</p>
-                </div>
+    <!-- Sezione Biografia -->
+    <section id="vita" class="content-section dark-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">La Vita</span>
+                <h2>Zenone di Elea</h2>
             </div>
             
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>Il Difensore dell'Uno</h3>
+                    <p>Zenone di Elea (489-431 a.C.) fu un filosofo presocratico della scuola eleatica, discepolo e fervente difensore di Parmenide. La sua fama è legata principalmente ai celebri paradossi con cui cercava di dimostrare l'impossibilità del movimento e della molteplicità.</p>
+                    
+                    <p>Nato a Elea, colonia greca dell'Italia meridionale, Zenone sviluppò una serie di argomentazioni dialettiche che miravano a confutare le obiezioni contro la dottrina parmenidea dell'Uno immutabile ed eterno.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>Il Metodo Dialettico</h4>
+                        <p>Aristotele lo considerò l'inventore della dialettica, l'arte di confutare una tesi assumendola come vera per poi mostrarne le contraddizioni interne attraverso ragionamenti logici.</p>
+                    </div>
+                </div>
+                
+                <div class="image-content">
+                    <div class="glass-image-frame">
+                        <div class="image-placeholder">
+                            <i class="fas fa-monument"></i>
+                            <p>Rappresentazione di Zenone</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <footer class="vision-footer">
-             <a href="#hero" class="vision-link">Torna su <i class="fa-solid fa-circle-up"></i></a>
-        </footer>
     </section>
-    
+
+    <!-- Sezione Paradossi -->
+    <section id="paradossi" class="content-section light-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">I Paradossi</span>
+                <h2>Le Argomentazioni sul Movimento</h2>
+            </div>
+            
+            <div class="paradox-grid">
+                <div class="paradox-card">
+                    <div class="paradox-number">01</div>
+                    <h3>La Dicotomia</h3>
+                    <p>Per percorrere una qualsiasi distanza, bisogna prima raggiungere la metà del percorso, poi la metà della metà rimanente, e così all'infinito. Il movimento quindi non può mai iniziare.</p>
+                </div>
+                
+                <div class="paradox-card">
+                    <div class="paradox-number">02</div>
+                    <h3>Achille e la Tartaruga</h3>
+                    <p>Achille, il piè veloce, non potrà mai superare una tartaruga a cui sia stato concesso un vantaggio iniziale, perché deve prima raggiungere il punto da cui la tartaruga è partita.</p>
+                </div>
+                
+                <div class="paradox-card">
+                    <div class="paradox-number">03</div>
+                    <h3>La Freccia</h3>
+                    <p>In ogni istante del suo volo, la freccia occupa uno spazio uguale a se stessa, quindi è ferma in quell'istante. Se è ferma in ogni istante, allora è sempre ferma.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Eredità -->
+    <section id="eredita" class="content-section dark-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">L'Eredità</span>
+                <h2>Influenza sul Pensiero Moderno</h2>
+            </div>
+            
+            <div class="legacy-content">
+                <div class="legacy-text">
+                    <h3>Dalla Filosofia alla Matematica</h3>
+                    <p>I paradossi di Zenone hanno influenzato profondamente lo sviluppo del pensiero filosofico e matematico occidentale. Le sue argomentazioni hanno anticipato problemi concettuali che sarebbero stati affrontati solo secoli dopo con lo sviluppo del calcolo infinitesimale.</p>
+                    
+                    <p>Nel XX secolo, i paradossi di Zenone sono stati rivisitati alla luce della fisica quantistica e della teoria della relatività, dimostrando come le sue intuizioni continuino a stimolare la riflessione filosofica e scientifica.</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">V sec. a.C.</div>
+                        <div class="timeline-content">
+                            <h4>Formulazione dei paradossi</h4>
+                            <p>Zenone sviluppa le sue argomentazioni per difendere la filosofia di Parmenide</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">XVII sec.</div>
+                        <div class="timeline-content">
+                            <h4>Calcolo infinitesimale</h4>
+                            <p>Newton e Leibniz sviluppano strumenti matematici per risolvere i problemi sollevati da Zenone</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">XX sec.</div>
+                        <div class="timeline-content">
+                            <h4>Fisica moderna</h4>
+                            <p>La teoria della relatività e la meccanica quantistica offrono nuove prospettive sui paradossi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Zenone di Elea - Filosofia Antica. Sito realizzato per scopi didattici.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
