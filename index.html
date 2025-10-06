@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenone di Elea | Filosofia</title>
+    <title>Zenone di Elea | Filosofia Presocratica</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <!-- Hero Section -->
+    <!-- Home Section -->
     <section id="home" class="section active">
         <div class="background-slider">
             <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1555099962-4199c345e546?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"></div>
@@ -20,24 +20,42 @@
         
         <div class="content">
             <h1 class="main-title">ZENONE</h1>
-            <p class="subtitle">di Elea · Filosofo Presocratico</p>
+            <p class="subtitle">I paradossi che sfidarono la realtà</p>
             
             <nav class="main-nav">
-                <button class="nav-btn" data-target="vita">
-                    <i class="fas fa-user"></i>
-                    <span>Chi era</span>
+                <button class="glass-btn" data-target="vita">
+                    <div class="btn-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span class="btn-text">Chi era</span>
                 </button>
-                <button class="nav-btn" data-target="pensiero">
-                    <i class="fas fa-brain"></i>
-                    <span>Il Pensiero</span>
+                
+                <button class="glass-btn" data-target="pensiero">
+                    <div class="btn-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <span class="btn-text">Il Pensiero</span>
                 </button>
-                <button class="nav-btn" data-target="paradossi">
-                    <i class="fas fa-infinity"></i>
-                    <span>I Paradossi</span>
+                
+                <button class="glass-btn" data-target="paradossi">
+                    <div class="btn-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <span class="btn-text">I Paradossi</span>
                 </button>
-                <button class="nav-btn" data-target="eredita">
-                    <i class="fas fa-monument"></i>
-                    <span>L'Eredità</span>
+                
+                <button class="glass-btn" data-target="eredita">
+                    <div class="btn-icon">
+                        <i class="fas fa-monument"></i>
+                    </div>
+                    <span class="btn-text">L'Eredità</span>
+                </button>
+                
+                <button class="glass-btn" data-target="orale">
+                    <div class="btn-icon">
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    <span class="btn-text">Spunti Orali</span>
                 </button>
             </nav>
         </div>
@@ -46,9 +64,9 @@
     <!-- Sezione Chi Era -->
     <section id="vita" class="section">
         <div class="content">
-            <button class="back-btn">
+            <button class="back-btn glass-btn">
                 <i class="fas fa-arrow-left"></i>
-                Torna alla Home
+                <span>Torna alla Home</span>
             </button>
             
             <div class="section-header">
@@ -56,19 +74,14 @@
             </div>
             
             <div class="text-content">
-                <div class="info-card">
+                <div class="glass-card">
                     <h3>Il Filosofo di Elea</h3>
                     <ul>
                         <li>Nato a <strong>Elea</strong> (Magna Grecia) nel V sec. a.C.</li>
-                        <li>Discepolo e difensore di <strong>Parmenide</strong></li>
-                        <li>Inventore della <strong>dialettica</strong> secondo Aristotele</li>
-                        <li>Maestro della <strong>dimostrazione per assurdo</strong></li>
+                        <li>Discepolo e difensore di <strong>Parmenide</strong>, che sosteneva il monismo: "tutto è Uno".</li>
+                        <li>Considerato da Aristotele l'inventore della <strong>dialettica</strong>, cioè l'arte di discutere e confutare con argomenti stringenti.</li>
+                        <li>Usava la <strong>dimostrazione per assurdo</strong>: assumeva la tesi dell'avversario e ne mostrava le contraddizioni interne.</li>
                     </ul>
-                </div>
-                
-                <div class="info-card">
-                    <h3>Il Difensore dell'Uno</h3>
-                    <p>Zenone non creò una dottrina originale, ma dedicò la sua vita a difendere la filosofia del maestro Parmenide, secondo cui "tutto è Uno", immutabile ed eterno.</p>
                 </div>
             </div>
         </div>
@@ -77,9 +90,9 @@
     <!-- Sezione Il Pensiero -->
     <section id="pensiero" class="section">
         <div class="content">
-            <button class="back-btn">
+            <button class="back-btn glass-btn">
                 <i class="fas fa-arrow-left"></i>
-                Torna alla Home
+                <span>Torna alla Home</span>
             </button>
             
             <div class="section-header">
@@ -87,21 +100,21 @@
             </div>
             
             <div class="text-content">
-                <div class="info-card">
-                    <h3>La Missione Filosofica</h3>
+                <div class="glass-card">
+                    <h3>Obiettivo del suo Filosofare</h3>
                     <p>Lo scopo di Zenone era difendere la tesi parmenidea contro chi sosteneva la molteplicità e il movimento, mostrando che accettare la pluralità o il moto porta a inevitabili contraddizioni logiche.</p>
                 </div>
                 
-                <div class="quote-card">
+                <div class="glass-card quote-card">
                     <blockquote>
                         «Quanto si muove, né nel luogo in cui è viene a muoversi, né in quello in cui non è»
                         <cite>– Diogene Laerzio, IX, 72</cite>
                     </blockquote>
                 </div>
                 
-                <div class="info-card">
+                <div class="glass-card">
                     <h3>Zenone e la Dialettica</h3>
-                    <p>Aristotele attribuisce a Zenone l'invenzione della dialettica, l'arte di discutere per difendere una tesi e confutare quella avversaria usando:</p>
+                    <p>Aristotele attribuisce a Zenone l'invenzione della dialettica, l'arte di discutere per difendere una tesi e confutare quella avversaria. Zenone anticipa il metodo socratico e la logica aristotelica usando:</p>
                     <ul>
                         <li>Principio di non contraddizione</li>
                         <li>Riduzione all'impossibile (dimostrazione per assurdo)</li>
@@ -114,32 +127,32 @@
     <!-- Sezione I Paradossi -->
     <section id="paradossi" class="section">
         <div class="content">
-            <button class="back-btn">
+            <button class="back-btn glass-btn">
                 <i class="fas fa-arrow-left"></i>
-                Torna alla Home
+                <span>Torna alla Home</span>
             </button>
             
             <div class="section-header">
                 <h2>🔎 I Paradossi</h2>
             </div>
             
-            <div class="paradox-grid">
-                <div class="paradox-card">
-                    <div class="paradox-number">01</div>
+            <div class="cards-grid">
+                <div class="glass-card paradox-card">
+                    <div class="card-number">01</div>
                     <h3>La Dicotomia</h3>
-                    <p>Per muoversi da A a B bisogna prima raggiungere la metà del percorso, poi la metà della metà rimanente, e così all'infinito. <strong>Il movimento non può nemmeno iniziare</strong> perché ci sono infiniti punti da attraversare.</p>
+                    <p>Un corpo che deve andare da A a B deve prima passare per il punto medio C, poi per il punto medio tra A e C, e così via all'infinito.<br><strong>Conclusione</strong>: il movimento non può nemmeno iniziare, perché ci sono infiniti punti da attraversare.</p>
                 </div>
                 
-                <div class="paradox-card">
-                    <div class="paradox-number">02</div>
+                <div class="glass-card paradox-card">
+                    <div class="card-number">02</div>
                     <h3>Achille e la Tartaruga</h3>
-                    <p>Achille, pur essendo il più veloce, non raggiungerà mai la tartaruga se le concede un vantaggio. Ogni volta che Achille raggiunge il punto dove si trovava la tartaruga, questa si sarà spostata un po' più in avanti.</p>
+                    <p>Achille, pur essendo il più veloce, non raggiungerà mai la tartaruga se le concede un vantaggio. Ogni volta che Achille raggiunge il punto dove si trovava la tartaruga, questa si sarà spostata un po' più in avanti, costringendolo a coprire infiniti intervalli.</p>
                 </div>
                 
-                <div class="paradox-card">
-                    <div class="paradox-number">03</div>
+                <div class="glass-card paradox-card">
+                    <div class="card-number">03</div>
                     <h3>La Freccia Immobile</h3>
-                    <p>Una freccia in volo in ogni singolo istante occupa solo uno spazio pari alla sua lunghezza. Se in ogni istante è ferma, allora <strong>è sempre immobile</strong> e il suo movimento è un'illusione.</p>
+                    <p>Una freccia in volo sembra muoversi, ma in ogni singolo istante occupa solo uno spazio pari alla sua lunghezza. Se in ogni istante è ferma, allora è sempre immobile e il suo movimento è un'illusione.</p>
                 </div>
             </div>
         </div>
@@ -148,9 +161,9 @@
     <!-- Sezione L'Eredità -->
     <section id="eredita" class="section">
         <div class="content">
-            <button class="back-btn">
+            <button class="back-btn glass-btn">
                 <i class="fas fa-arrow-left"></i>
-                Torna alla Home
+                <span>Torna alla Home</span>
             </button>
             
             <div class="section-header">
@@ -158,24 +171,48 @@
             </div>
             
             <div class="text-content">
-                <div class="info-card">
-                    <h3>Le Risposte della Filosofia e Scienza</h3>
-                    <div class="response-grid">
-                        <div class="response-item">
-                            <h4>Aristotele</h4>
-                            <p>I paradossi si basano sull'idea che il tempo sia fatto di istanti separati. In realtà, il tempo è un continuo e il movimento è possibile.</p>
-                        </div>
-                        
-                        <div class="response-item">
-                            <h4>Matematica Moderna</h4>
-                            <p>Grazie al concetto di <strong>serie convergente</strong>, si dimostra che la somma di infiniti intervalli può dare un risultato finito.</p>
-                        </div>
-                        
-                        <div class="response-item">
-                            <h4>Einstein</h4>
-                            <p>La relatività dimostra che il tempo non è assoluto ma relativo al sistema di riferimento dell'osservatore.</p>
-                        </div>
+                <div class="glass-card">
+                    <h3>Le Risposte dei Filosofi e della Scienza</h3>
+                    <ul>
+                        <li><strong>Aristotele</strong>: i paradossi si basano sull'idea che il tempo sia fatto di istanti separati. In realtà, il tempo è un continuo e il movimento è possibile.</li>
+                        <li><strong>Kant</strong>: i paradossi mostrano i limiti della ragione umana quando cerca di pensare l'infinito.</li>
+                        <li><strong>Bergson</strong>: Zenone confonde il tempo matematico (astratto, divisibile) con la durata reale (continua e indivisibile).</li>
+                        <li><strong>Matematica Moderna</strong>: grazie al concetto di <strong>serie convergente</strong>, si dimostra che la somma di infiniti intervalli può dare un risultato finito. Per questo, Achille raggiunge e supera la tartaruga.</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card">
+                    <h3>Dal Paradosso Antico a Quello Moderno</h3>
+                    <div class="glass-card inner-card">
+                        <h4>Il Paradosso del Treno (Einstein)</h4>
+                        <p>Due osservatori (uno sul treno in corsa, uno sulla banchina) percepiscono diversamente la simultaneità di due fulmini che cadono alle estremità del treno. Questo dimostra che il tempo non è assoluto, ma <strong>relativo</strong> al sistema di riferimento dell'osservatore.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Spunti Orali -->
+    <section id="orale" class="section">
+        <div class="content">
+            <button class="back-btn glass-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Torna alla Home</span>
+            </button>
+            
+            <div class="section-header">
+                <h2>🗣️ Spunti Orali</h2>
+            </div>
+            
+            <div class="text-content">
+                <div class="glass-card highlight-card">
+                    <p><strong>Dottrine confutate da Zenone:</strong><br> Principalmente il pluralismo (l'idea che esistano molte cose) e la validità del movimento.</p>
+                    
+                    <p><strong>Significato del paradosso del treno:</strong><br> La simultaneità di due eventi dipende dal punto di vista dell'osservatore. Non esiste un tempo universale e oggettivo.</p>
+                    
+                    <p><strong>Riflessione critica:</strong><br> Il paradosso del treno, come quelli di Zenone, ci costringe a mettere in discussione la nostra percezione della realtà. Dimostra che due persone possono vivere lo stesso evento in modo diverso, cambiando la nostra concezione del tempo.</p>
+                    
+                    <p><strong>Esperienza personale:</strong><br> L'illusione del movimento relativo, come quando sei su un treno fermo e ti sembra che sia il treno accanto a muoversi, è un esempio perfetto di come la percezione dipenda dal sistema di riferimento.</p>
                 </div>
             </div>
         </div>
