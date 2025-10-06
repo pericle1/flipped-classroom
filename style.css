@@ -1,43 +1,229 @@
-/* Variabili e Font */
+/* Reset e Variabili */
 :root {
-    --black: #1a1a1c; 
-    --white: #f0f0f5; 
-    --gray: #9c9ca1; 
-    --blue: #007aff; 
-    --trans-bg: rgba(255, 255, 255, 0.15); /* Sfondo più trasparente */
-    --trans-dark: rgba(26, 26, 28, 0.7);
-    --font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --gray: #8a8a8a;
+    --blue: #0071e3;
+    --blue-light: #2997ff;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Reset e Scorrimento */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
-    scroll-behavior: smooth; 
-}
-body {
-    font-family: var(--font);
-    background-color: var(--white);
-    color: var(--black);
-    line-height: 1.6;
-    overflow-x: hidden; 
+    scroll-behavior: smooth;
 }
 
-/* --------------------
-   SEZIONI GENERALI (a schermo intero)
-   -------------------- */
-.full-screen-section {
+body {
+    font-family: var(--font-primary);
+    background-color: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero-section {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 0 40px;
     position: relative;
-    overflow: hidden; /* Importante per l'overlay animato */
+    overflow: hidden;
+}
+
+.background-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.liquid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(10, 10, 10, 0.9) 0%,
+        rgba(10, 10, 10, 0.7) 50%,
+        rgba(10, 10, 10, 0.9) 100%
+    );
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.main-title {
+    font-size: 8rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--white) 0%, var(--gray) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 4rem;
+    letter-spacing: 0.1em;
+}
+
+/* Glass Menu */
+.glass-menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    text-decoration: none;
+    color: var(--white);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.glass-card:hover::before {
+    left: 100%;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: var(--glass-shadow);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--blue-light);
+}
+
+.glass-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.glass-card p {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.5;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.chevron {
+    width: 20px;
+    height: 4px;
+    background: var(--white);
+    margin: 4px 0;
+    border-radius: 2px;
+    animation: scrollPulse 2s infinite;
+}
+
+.chevron:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.chevron:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Content Sections */
+.content-section {
+    min-height: 100vh;
+    padding: 6rem 0;
+    display: flex;
+    align-items: center;
 }
 
 .dark-section {
@@ -46,251 +232,232 @@ body {
 }
 
 .light-section {
-    background-color: var(--white);
+    background-color: #f5f5f7;
     color: var(--black);
 }
 
-.content-box {
-    max-width: 1000px;
-    width: 100%;
+.container {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-    z-index: 2; /* Assicura che il contenuto sia sopra l'overlay */
+    padding: 0 20px;
 }
 
-/* --------------------
-   SEZIONE HERO (Vision Style)
-   -------------------- */
-.hero-vision {
-    /* Immagine di sfondo ad alta definizione */
-    background: url('https://images.unsplash.com/photo-1555099962-4199c345e546?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzOTcwMjZ8MHwxfHNlYXJjaHw3fHxmaWxvc29waHl8ZW58MHx8fHwxNzA3NjQxMDk5fDA&ixlib=rb-4.0.3&q=80&w=2000') no-repeat center center/cover;
-    color: var(--white);
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
 }
 
-/* Overlay per il Gradiente Animato (Liquid Effect) */
-.animated-liquid-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    /* Gradiente con animazione lenta */
-    background: linear-gradient(
-        45deg, 
-        rgba(0, 0, 0, 0.8), 
-        rgba(0, 0, 0, 0.6), 
-        rgba(0, 0, 0, 0.8)
-    );
-    background-size: 400% 400%;
-    animation: liquidFlow 15s ease infinite;
+.section-tag {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--blue-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
 }
 
-@keyframes liquidFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.section-header h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
-.hero-content {
-    z-index: 3; /* Assicura che il contenuto sia sopra l'overlay */
+/* Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
 }
 
-.hero-content h1 {
-    font-size: 7.5rem; /* Zenone Bello Grande */
-    font-weight: 800;
-    letter-spacing: -0.07em;
-    margin-bottom: 5px;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Profondità */
-}
-.hero-content .subtitle {
-    font-size: 2.2rem;
-    font-weight: 300;
-    margin-bottom: 80px;
-    color: rgba(255, 255, 255, 0.9);
+.text-content h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
 }
 
-/* --------------------
-   MENU VISION CARD (Liquid Glass Style)
-   -------------------- */
-#vision-menu {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 20px;
+.text-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: var(--gray);
 }
-.menu-card {
+
+.light-section .text-content p {
+    color: #666;
+}
+
+.highlight-box {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.highlight-box h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.glass-image-frame {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    height: 300px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 300px;
-    padding: 35px;
-    text-align: left;
-    text-decoration: none;
-    color: var(--white);
-    border-radius: 25px; /* Bordi più arrotondati */
-    position: relative;
-    cursor: pointer;
-
-    /* Effetto Liquid Glass potenziato */
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.4); /* Bordo di riflesso più evidente */
-    backdrop-filter: blur(30px); /* Sfocatura maggiore */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Ombra profonda */
-    
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Animazione al passaggio del mouse (hover) */
-.menu-card:hover {
-    transform: translateY(-10px) scale(1.03); /* Movimento più pronunciato */
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5); /* Ombra più scura in hover */
+.image-placeholder i {
+    font-size: 4rem;
+    color: var(--blue-light);
+    margin-bottom: 1rem;
 }
 
-.menu-card i {
-    font-size: 3.5rem;
-    color: var(--blue);
-    margin-bottom: 15px;
-}
-.menu-card h4 {
-    font-size: 1.6rem;
-    font-weight: 800; /* Titolo più bold all'interno */
-    color: var(--white);
-    margin-bottom: 5px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-.menu-card p {
-    font-size: 1rem;
-    opacity: 0.8;
+/* Paradox Grid */
+.paradox-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 }
 
-/* --------------------
-   Vision Card Secondarie (per i contenuti)
-   -------------------- */
-.vision-card-small {
-    padding: 30px;
+.paradox-card {
+    background: var(--white);
     border-radius: 20px;
-    /* Adatta lo stile Liquid Glass */
-    background-color: var(--trans-dark); 
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    text-align: left;
-    color: var(--white);
+    padding: 2.5rem 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
-.vision-card-small:hover {
+
+.paradox-card:hover {
     transform: translateY(-5px);
 }
 
-.light-section .vision-card-small {
-    background-color: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+.paradox-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--blue-light);
+    opacity: 0.2;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    line-height: 1;
+}
+
+.paradox-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
     color: var(--black);
 }
 
-/* Stili Tipografici e Layout */
-h3 {
-    font-size: 3.2rem; 
-    font-weight: 700;
-    margin-bottom: 30px;
-    letter-spacing: -0.02em;
+.paradox-card p {
+    color: #666;
+    line-height: 1.6;
 }
-.section-tag {
+
+/* Legacy Content */
+.legacy-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.timeline {
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--blue-light);
+    opacity: 0.3;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 3rem;
+}
+
+.timeline-year {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--blue);
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
+    color: var(--blue-light);
+    margin-bottom: 0.5rem;
 }
-.split-content {
-    display: flex;
-    text-align: left;
-    gap: 40px;
-    margin-top: 40px;
-}
-.vision-link {
-    color: var(--gray);
-    text-decoration: none;
+
+.timeline-content h4 {
+    font-size: 1.3rem;
     font-weight: 600;
-    transition: color 0.3s;
-}
-.dark-section .vision-link:hover {
-    color: var(--blue);
+    margin-bottom: 0.5rem;
 }
 
-/* --------------------
-   ANIMAZIONI (più creatività)
-   -------------------- */
-
-/* Animazioni base potenziate */
-.animate-fade-in-up {
-    opacity: 0;
-    transform: translateY(40px); /* Maggiore distanza iniziale */
-    animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-.subtitle.animate-fade-in-up {
-    animation-delay: 0.5s;
+.timeline-content p {
+    color: var(--gray);
+    line-height: 1.6;
 }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+/* Footer */
+.site-footer {
+    background: var(--black);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .main-title {
+        font-size: 5rem;
+    }
+    
+    .glass-menu {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .content-grid,
+    .paradox-grid,
+    .legacy-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2.5rem;
     }
 }
 
-.animate-scale-in {
-    opacity: 0;
-    transform: scale(0.85); /* Scala iniziale più piccola */
-    animation: scaleIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    animation-delay: 1.0s;
-}
-.animate-scale-in.delay-1 { animation-delay: 1.2s; }
-.animate-scale-in.delay-2 { animation-delay: 1.4s; }
-
-@keyframes scaleIn {
-    to {
-        opacity: 1;
-        transform: scale(1);
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3.5rem;
     }
-}
-
-/* Animazione per le sezioni interne (Scroll) */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                transform 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* MEDIA QUERIES (Mobile) */
-@media (max-width: 1024px) {
-    .hero-content h1 {
-        font-size: 4.5rem;
+    
+    .subtitle {
+        font-size: 1.2rem;
     }
-    .hero-content .subtitle {
-        font-size: 1.8rem;
+    
+    .glass-card {
+        padding: 2rem 1.5rem;
     }
-    #vision-menu {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .menu-card {
-        width: 100%;
-        max-width: 450px;
-        margin: 0 auto;
-    }
-    .full-screen-section {
-        height: auto; 
-        min-height: 100vh;
-    }
-    .split-content {
-        flex-direction: column;
-        gap: 20px;
+    
+    .content-section {
+        padding: 4rem 0;
     }
 }
