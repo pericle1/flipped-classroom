@@ -1,0 +1,183 @@
+/* Impostazioni globali e variabili per i colori */
+:root {
+    --bg-color: #121212; /* Sfondo scuro moderno */
+    --text-color: #e0e0e0; /* Testo quasi bianco, non affatica la vista */
+    --primary-color: #bb86fc; /* Un colore d'accento viola */
+    --secondary-color: #03dac6; /* Un secondo colore d'accento per i dettagli */
+    --card-bg-color: #1e1e1e; /* Sfondo per le card e sezioni */
+}
+
+/* Reset di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* Stile della sezione di ingresso (HERO) */
+#hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1555099962-4199c345e546?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+}
+
+.hero-content h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 4.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.hero-content .subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+}
+
+/* Stile del menu a blocchi */
+#main-menu {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu-card {
+    background-color: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(5px);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+/* Stile delle sezioni di contenuto */
+main {
+    padding: 20px 0;
+}
+.content-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.content-section h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.content-section h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.content-section h4 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Stile per le liste */
+ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+ul li {
+    margin-bottom: 10px;
+}
+ul li::marker {
+    color: var(--primary-color);
+}
+strong {
+    color: var(--secondary-color);
+}
+
+/* Stile per le citazioni */
+blockquote {
+    margin: 25px 0;
+    padding: 20px;
+    border-left: 3px solid var(--secondary-color);
+    background-color: #2a2a2a;
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+}
+blockquote cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    text-align: right;
+    color: #aaa;
+}
+
+.paradosso {
+    margin-bottom: 20px;
+}
+
+/* Stile per la sezione speciale "Spunti Orali" */
+.content-section.highlight {
+    border-color: var(--secondary-color);
+    background-color: #2a2a2a;
+}
+.content-section.highlight p {
+    margin-bottom: 15px;
+}
+
+/* Stile del footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Adattabilità per schermi piccoli (mobile) */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-content .subtitle {
+        font-size: 1.2rem;
+    }
+    .content-section {
+        padding: 25px;
+        margin: 20px 10px;
+    }
+    .content-section h2 {
+        font-size: 2.2rem;
+    }
+}
