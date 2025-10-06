@@ -1,53 +1,76 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. ANIMAZIONE FLUIDA SU SCROLL (Intersection Observer)
+document.addEventListener('DOMContentLoaded', function() {
+    // Background Slider
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
     
-    // Seleziona tutti gli elementi con la classe per l'animazione
-    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-
-    // Opzioni per l'osservatore: l'elemento deve essere visibile per almeno il 10%
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    
+    // Cambia slide ogni 5 secondi
+    setInterval(nextSlide, 5000);
+    
+    // Animazione on Scroll
     const observerOptions = {
-        root: null, // viewport come radice
-        rootMargin: '0px',
-        threshold: 0.1 // 10% dell'elemento deve essere visibile
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
-
-    const observer = new IntersectionObserver((entries, observer) => {
+    
+    const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Se l'elemento è visibile, aggiunge la classe per animarlo
-                entry.target.classList.add('is-visible');
-                // Smette di osservare l'elemento dopo la prima animazione
-                observer.unobserve(entry.target); 
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
             }
         });
     }, observerOptions);
-
-    // Inizializza l'osservatore su tutti gli elementi
-    elementsToAnimate.forEach(element => {
-        observer.observe(element);
+    
+    // Osserva gli elementi da animare
+    const animateElements = document.querySelectorAll('.content-grid, .paradox-grid, .legacy-content');
+    animateElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
     });
-
-
-    // 2. SCORRIMENTO FLUIDO TRA LE SEZIONI (Garantito)
-
-    const navLinks = document.querySelectorAll('#vision-menu a, .vision-link');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Evita il comportamento di salto immediato predefinito
-            e.preventDefault(); 
-            
-            // Ottiene l'ID della sezione di destinazione (e.g., #vita)
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-
-            if (targetSection) {
-                // Scorrimento fluido alla sezione
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
+    
+    // Smooth Scroll per i link del menu
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
         });
     });
-
+    
+    // Effetto parallax per l'hero section
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero-section');
+        if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+    });
+    
+    // Animazione delle carte al hover
+    const glassCards = document.querySelectorAll('.glass-card');
+    glassCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // Inizializzazione
+    console.log('Sito Zenone di Elea - Caricamento completato');
 });
