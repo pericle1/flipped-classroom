@@ -11,78 +11,168 @@
         }
         
         body {
-            background-color: #f5f7fa;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            color: #333;
         }
         
         .quiz-container {
             background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             width: 100%;
-            max-width: 700px;
+            max-width: 800px;
             padding: 30px;
             position: relative;
+            overflow: hidden;
         }
         
         .quiz-header {
             text-align: center;
             margin-bottom: 30px;
+            position: relative;
         }
         
         .quiz-title {
             color: #2c3e50;
             margin-bottom: 5px;
-            font-size: 24px;
+            font-size: 28px;
+            font-weight: 700;
         }
         
         .score {
             color: #7f8c8d;
             font-weight: 500;
             margin-bottom: 20px;
+            font-size: 18px;
         }
         
         .progress-container {
-            margin-bottom: 30px;
+            margin: 30px 0;
+            padding: 0 10px;
         }
         
         .progress-bar {
-            height: 8px;
+            height: 12px;
             background-color: #ecf0f1;
-            border-radius: 4px;
+            border-radius: 6px;
             overflow: hidden;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .progress {
             height: 100%;
-            background-color: #3498db;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
             width: 20%;
-            border-radius: 4px;
-            transition: width 0.3s ease;
+            border-radius: 6px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+        
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 20px 20px;
+            animation: move 1s linear infinite;
+        }
+        
+        @keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 20px 0;
+            }
         }
         
         .progress-info {
             display: flex;
             justify-content: space-between;
             color: #7f8c8d;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .progress-dots {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding: 0 5px;
+        }
+        
+        .progress-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #ecf0f1;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .progress-dot.active {
+            background-color: #3498db;
+            transform: scale(1.2);
+        }
+        
+        .progress-dot.active::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #3498db;
+            top: -6px;
+            left: -6px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.4;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0.8;
+            }
         }
         
         .question-container {
             margin-bottom: 30px;
+            padding: 0 10px;
         }
         
         .question-text {
-            font-size: 20px;
+            font-size: 22px;
             color: #2c3e50;
             margin-bottom: 25px;
             line-height: 1.4;
+            font-weight: 600;
         }
         
         .options-container {
@@ -94,78 +184,104 @@
         .option-button {
             background-color: white;
             border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 15px 20px;
-            font-size: 16px;
+            border-radius: 12px;
+            padding: 18px 20px;
+            font-size: 17px;
             color: #2c3e50;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             text-align: left;
             display: flex;
             align-items: center;
+            width: 100%;
         }
         
         .option-button:hover {
             border-color: #3498db;
             background-color: #f8fafc;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
         
         .option-button:active {
             transform: translateY(0);
         }
         
+        .option-button.selected {
+            border-color: #2ecc71;
+            background-color: rgba(46, 204, 113, 0.05);
+        }
+        
         .option-letter {
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            width: 30px;
-            height: 30px;
+            width: 36px;
+            height: 36px;
             background-color: #ecf0f1;
             border-radius: 50%;
-            margin-right: 15px;
+            margin-right: 18px;
             font-weight: bold;
             color: #7f8c8d;
             flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .option-button:hover .option-letter {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .option-button.selected .option-letter {
+            background-color: #2ecc71;
+            color: white;
         }
         
         .navigation {
             display: flex;
             justify-content: space-between;
             margin-top: 30px;
+            padding: 0 10px;
         }
         
         .nav-button {
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 16px;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-size: 17px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+            border: none;
         }
         
         .prev-button {
             background-color: #ecf0f1;
             color: #7f8c8d;
-            border: none;
         }
         
         .prev-button:hover {
             background-color: #d5dbdb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         
         .next-button {
-            background-color: #3498db;
+            background: linear-gradient(135deg, #3498db, #2ecc71);
             color: white;
-            border: none;
             box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
         }
         
         .next-button:hover {
-            background-color: #2980b9;
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        }
+        
+        .quiz-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #7f8c8d;
+            font-size: 14px;
+            padding: 0 10px;
         }
         
         @media (max-width: 600px) {
@@ -174,12 +290,21 @@
             }
             
             .question-text {
-                font-size: 18px;
+                font-size: 19px;
             }
             
             .option-button {
-                padding: 12px 15px;
-                font-size: 15px;
+                padding: 15px;
+                font-size: 16px;
+            }
+            
+            .nav-button {
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+            
+            .quiz-title {
+                font-size: 24px;
             }
         }
     </style>
@@ -198,6 +323,13 @@
             <div class="progress-info">
                 <span>Domanda 1 di 5</span>
                 <span>20% completato</span>
+            </div>
+            <div class="progress-dots">
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
             </div>
         </div>
         
@@ -231,6 +363,35 @@
             <button class="nav-button prev-button">Precedente</button>
             <button class="nav-button next-button">Prossima</button>
         </div>
+        
+        <div class="quiz-footer">
+            Seleziona la risposta corretta e clicca "Prossima" per continuare
+        </div>
     </div>
+
+    <script>
+        // Aggiungi interattività ai pulsanti delle opzioni
+        document.querySelectorAll('.option-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Rimuovi la selezione da tutti i pulsanti
+                document.querySelectorAll('.option-button').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                
+                // Aggiungi la selezione al pulsante cliccato
+                this.classList.add('selected');
+            });
+        });
+        
+        // Simula il passaggio alla domanda successiva
+        document.querySelector('.next-button').addEventListener('click', function() {
+            alert('Funzionalità "Prossima domanda" - In un'implementazione reale, qui si passerebbe alla domanda successiva');
+        });
+        
+        // Simula il passaggio alla domanda precedente
+        document.querySelector('.prev-button').addEventListener('click', function() {
+            alert('Funzionalità "Domanda precedente" - In un'implementazione reale, qui si tornerebbe alla domanda precedente');
+        });
+    </script>
 </body>
 </html>
