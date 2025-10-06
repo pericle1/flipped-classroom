@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Elementi DOM
     const sections = document.querySelectorAll('.section');
-    const navButtons = document.querySelectorAll('.nav-btn');
+    const navButtons = document.querySelectorAll('.glass-btn');
     const backButtons = document.querySelectorAll('.back-btn');
     const slides = document.querySelectorAll('.slide');
     
@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Navigazione tra sezioni
     function showSection(sectionId) {
+        console.log('Mostrando sezione:', sectionId);
+        
         // Nascondi tutte le sezioni
         sections.forEach(section => {
             section.classList.remove('active');
@@ -39,15 +41,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Event listeners per i pulsanti di navigazione
     navButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const target = this.getAttribute('data-target');
-            showSection(target);
-        });
+        // Filtra solo i bottoni del menu principale (escludi back-btn)
+        if (button.closest('.main-nav')) {
+            button.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                console.log('Cliccato bottone:', target);
+                showSection(target);
+            });
+        }
     });
     
     // Event listeners per i pulsanti "Torna alla Home"
     backButtons.forEach(button => {
         button.addEventListener('click', function() {
+            console.log('Torna alla home');
             showSection('home');
         });
     });
@@ -61,4 +68,9 @@ document.addEventListener('DOMContentLoaded', function() {
             showSection('home');
         }
     });
+    
+    // Debug: verifica che tutti gli elementi siano presenti
+    console.log('Sezioni trovate:', sections.length);
+    console.log('Pulsanti glass trovati:', navButtons.length);
+    console.log('Pulsanti back trovati:', backButtons.length);
 });
