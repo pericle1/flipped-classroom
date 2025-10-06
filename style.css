@@ -7,7 +7,7 @@
     --glass-border: rgba(255, 255, 255, 0.25);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     --glass-highlight: rgba(255, 255, 255, 0.1);
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 * {
@@ -35,11 +35,13 @@ html, body {
     visibility: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease;
     overflow-y: auto;
+    z-index: 1;
 }
 
 .section.active {
     opacity: 1;
     visibility: visible;
+    z-index: 2;
 }
 
 /* Background Slider per Hero */
@@ -246,11 +248,6 @@ html, body {
 
 .glass-card:hover {
     transform: translateY(-5px);
-}
-
-.highlight-card {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .inner-card {
