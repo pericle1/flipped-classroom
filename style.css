@@ -1,24 +1,23 @@
-/* Variabili per il tema (Apple style: bianco e nero con tocchi di grigio e blu) */
+/* Variabili e Font */
 :root {
-    --black: #1d1d1f; 
-    --white: #f5f5f7; 
-    --gray: #86868b; 
+    --black: #1a1a1c; 
+    --white: #f0f0f5; 
+    --gray: #9c9ca1; 
     --blue: #007aff; 
+    --trans-bg: rgba(255, 255, 255, 0.15); /* Sfondo più trasparente */
+    --trans-dark: rgba(26, 26, 28, 0.7);
     --font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-/* Reset e Font */
+/* Reset e Scorrimento */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 html {
-    /* Scorrimento fluido */
     scroll-behavior: smooth; 
 }
-
 body {
     font-family: var(--font);
     background-color: var(--white);
@@ -28,39 +27,7 @@ body {
 }
 
 /* --------------------
-   NAVIGAZIONE FISSA
-   -------------------- */
-#main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    /* Effetto 'vetro' o 'frosted glass' */
-    background-color: rgba(255, 255, 255, 0.9); 
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    font-weight: 600;
-}
-
-#main-nav a {
-    color: var(--black);
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-
-#main-nav a:hover {
-    color: var(--blue);
-}
-
-/* --------------------
-   SEZIONI A SCHERMO INTERO
+   SEZIONI GENERALI (a schermo intero)
    -------------------- */
 .full-screen-section {
     height: 100vh;
@@ -70,13 +37,7 @@ body {
     text-align: center;
     padding: 0 40px;
     position: relative;
-    /* Evita che l'header fisso copra l'inizio della sezione */
-    padding-top: 60px; 
-}
-
-.light-section {
-    background-color: var(--white);
-    color: var(--black);
+    overflow: hidden; /* Importante per l'overlay animato */
 }
 
 .dark-section {
@@ -84,169 +45,252 @@ body {
     color: var(--white);
 }
 
-.dark-section a {
-    color: var(--white);
-}
-
-.dark-section .cta-button {
-    border: 2px solid var(--white);
-}
-.dark-section .cta-button:hover {
+.light-section {
     background-color: var(--white);
     color: var(--black);
 }
 
 .content-box {
-    max-width: 900px;
+    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
-}
-
-/* Stili Tipografici */
-h1 {
-    font-size: 4.5rem;
-    font-weight: 700;
-    letter-spacing: -0.05em;
-    margin-bottom: 15px;
-}
-
-h2 {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: var(--gray);
-    margin-bottom: 40px;
-}
-
-h3 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-h4 {
-    color: var(--blue);
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.pre-title {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--gray);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.section-tag {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--blue);
-    margin-bottom: 15px;
-}
-
-/* Pulsante CTA */
-.cta-button {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: var(--blue);
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 999px;
-    border: 2px solid var(--blue);
-    transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: transparent;
-    color: var(--blue);
-}
-
-/* Layout a colonne (per sezione #vita) */
-.split-content {
-    display: flex;
-    text-align: left;
-    gap: 50px;
-    margin-top: 30px;
-}
-.left-col, .right-col {
-    flex: 1;
-}
-
-ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-ul li {
-    margin-bottom: 10px;
-    padding-left: 1.5em;
-    position: relative;
-}
-ul li::before {
-    content: '•';
-    color: var(--blue);
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-}
-
-/* Griglia per i Paradossi */
-.paradosso-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 30px;
-    text-align: left;
-}
-.paradosso {
     padding: 20px;
-    border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.03); /* Sottile sfondo grigio */
+    z-index: 2; /* Assicura che il contenuto sia sopra l'overlay */
 }
 
 /* --------------------
-   ANIMAZIONI (SETUP INIZIALE)
+   SEZIONE HERO (Vision Style)
    -------------------- */
-
-/* Stato iniziale degli elementi da animare (invisibili e leggermente spostati) */
-.animate-on-scroll,
-.animate-fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.hero-vision {
+    /* Immagine di sfondo ad alta definizione */
+    background: url('https://images.unsplash.com/photo-1555099962-4199c345e546?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzOTcwMjZ8MHwxfHNlYXJjaHw3fHxmaWxvc29waHl8ZW58MHx8fHwxNzA3NjQxMDk5fDA&ixlib=rb-4.0.3&q=80&w=2000') no-repeat center center/cover;
+    color: var(--white);
 }
 
-/* Stato finale (quando la classe .is-visible viene aggiunta da JS) */
+/* Overlay per il Gradiente Animato (Liquid Effect) */
+.animated-liquid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Gradiente con animazione lenta */
+    background: linear-gradient(
+        45deg, 
+        rgba(0, 0, 0, 0.8), 
+        rgba(0, 0, 0, 0.6), 
+        rgba(0, 0, 0, 0.8)
+    );
+    background-size: 400% 400%;
+    animation: liquidFlow 15s ease infinite;
+}
+
+@keyframes liquidFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-content {
+    z-index: 3; /* Assicura che il contenuto sia sopra l'overlay */
+}
+
+.hero-content h1 {
+    font-size: 7.5rem; /* Zenone Bello Grande */
+    font-weight: 800;
+    letter-spacing: -0.07em;
+    margin-bottom: 5px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Profondità */
+}
+.hero-content .subtitle {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 80px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* --------------------
+   MENU VISION CARD (Liquid Glass Style)
+   -------------------- */
+#vision-menu {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+.menu-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+    padding: 35px;
+    text-align: left;
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 25px; /* Bordi più arrotondati */
+    position: relative;
+    cursor: pointer;
+
+    /* Effetto Liquid Glass potenziato */
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Bordo di riflesso più evidente */
+    backdrop-filter: blur(30px); /* Sfocatura maggiore */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Ombra profonda */
+    
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+}
+
+/* Animazione al passaggio del mouse (hover) */
+.menu-card:hover {
+    transform: translateY(-10px) scale(1.03); /* Movimento più pronunciato */
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5); /* Ombra più scura in hover */
+}
+
+.menu-card i {
+    font-size: 3.5rem;
+    color: var(--blue);
+    margin-bottom: 15px;
+}
+.menu-card h4 {
+    font-size: 1.6rem;
+    font-weight: 800; /* Titolo più bold all'interno */
+    color: var(--white);
+    margin-bottom: 5px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.menu-card p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* --------------------
+   Vision Card Secondarie (per i contenuti)
+   -------------------- */
+.vision-card-small {
+    padding: 30px;
+    border-radius: 20px;
+    /* Adatta lo stile Liquid Glass */
+    background-color: var(--trans-dark); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    text-align: left;
+    color: var(--white);
+    transition: transform 0.3s ease;
+}
+.vision-card-small:hover {
+    transform: translateY(-5px);
+}
+
+.light-section .vision-card-small {
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--black);
+}
+
+/* Stili Tipografici e Layout */
+h3 {
+    font-size: 3.2rem; 
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: -0.02em;
+}
+.section-tag {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+.split-content {
+    display: flex;
+    text-align: left;
+    gap: 40px;
+    margin-top: 40px;
+}
+.vision-link {
+    color: var(--gray);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+.dark-section .vision-link:hover {
+    color: var(--blue);
+}
+
+/* --------------------
+   ANIMAZIONI (più creatività)
+   -------------------- */
+
+/* Animazioni base potenziate */
+.animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(40px); /* Maggiore distanza iniziale */
+    animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+.subtitle.animate-fade-in-up {
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-scale-in {
+    opacity: 0;
+    transform: scale(0.85); /* Scala iniziale più piccola */
+    animation: scaleIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: 1.0s;
+}
+.animate-scale-in.delay-1 { animation-delay: 1.2s; }
+.animate-scale-in.delay-2 { animation-delay: 1.4s; }
+
+@keyframes scaleIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animazione per le sezioni interne (Scroll) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 .is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 /* MEDIA QUERIES (Mobile) */
-@media (max-width: 768px) {
-    #main-nav {
-        padding: 10px 20px;
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 4.5rem;
     }
-    .nav-links {
-        display: none; /* Nascondiamo i link secondari per semplicità mobile */
+    .hero-content .subtitle {
+        font-size: 1.8rem;
     }
-    h1 {
-        font-size: 3rem;
+    #vision-menu {
+        flex-direction: column;
+        gap: 15px;
     }
-    h2 {
-        font-size: 1.4rem;
+    .menu-card {
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
     }
     .full-screen-section {
-        height: auto; /* Permettiamo lo scorrimento naturale */
+        height: auto; 
         min-height: 100vh;
     }
     .split-content {
         flex-direction: column;
-    }
-    .paradosso-grid {
-        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
