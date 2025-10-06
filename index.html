@@ -3,98 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenone di Elea | Progetto di Filosofia</title>
+    <title>Zenone di Elea | Progetto Moderno</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header id="hero">
-        <div class="hero-content">
-            <h1>Zenone di Elea</h1>
-            <p class="subtitle">I paradossi che sfidarono la realtà</p>
-            
-            <nav id="main-menu">
-                <a href="#vita" class="menu-card">👤 Chi era</a>
-                <a href="#pensiero" class="menu-card">🧠 Il Pensiero</a>
-                <a href="#paradossi" class="menu-card">🔎 I Paradossi</a>
-                <a href="#eredita" class="menu-card">🏛️ Eredità e Risposte</a>
-                <a href="#orale" class="menu-card">🗣️ Spunti Orali</a>
-            </nav>
+    <nav id="main-nav">
+        <a href="#hero">Zenone</a>
+        <div class="nav-links">
+            <a href="#vita">Chi era</a>
+            <a href="#paradossi">Paradossi</a>
+            <a href="#risposte">Eredità</a>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section id="vita" class="content-section">
-            <h2>👤 Chi era Zenone</h2>
-            <ul>
-                <li>Nato a <strong>Elea</strong> (Magna Grecia) nel V sec. a.C.</li>
-                <li>Discepolo e difensore di <strong>Parmenide</strong>, che sosteneva il monismo: “tutto è Uno”.</li>
-                <li>Considerato da Aristotele l’inventore della <strong>dialettica</strong>, cioè l’arte di discutere e confutare con argomenti stringenti.</li>
-                <li>Usava la <strong>dimostrazione per assurdo</strong>: assumeva la tesi dell’avversario e ne mostrava le contraddizioni interne.</li>
-            </ul>
-        </section>
+    <section id="hero" class="full-screen-section light-section">
+        <div class="content-box animate-fade-in">
+            <p class="pre-title">FILOSOFIA MODERNA</p>
+            <h1>Zenone di Elea</h1>
+            <h2>I paradossi che sfidarono la realtà, oggi.</h2>
+            <a href="#vita" class="cta-button">Scopri di più</a>
+        </div>
+    </section>
 
-        <section id="pensiero" class="content-section">
-            <h2>🧠 Obiettivo del suo Filosofare</h2>
-            <p>Lo scopo di Zenone era difendere la tesi parmenidea contro chi sosteneva la molteplicità e il movimento, mostrando che accettare la pluralità o il moto porta a inevitabili contraddizioni logiche.</p>
-            <blockquote>«Quanto si muove, né nel luogo in cui è viene a muoversi, né in quello in cui non è»
-                <cite>– Diogene Laerzio, IX, 72</cite>
-            </blockquote>
-            <h3>Zenone e la Dialettica</h3>
-            <p>Aristotele attribuisce a Zenone l'invenzione della dialettica, l'arte di discutere per difendere una tesi e confutare quella avversaria. Zenone anticipa il metodo socratico e la logica aristotelica usando:</p>
-            <ul>
-                <li>Principio di non contraddizione</li>
-                <li>Riduzione all’impossibile (dimostrazione per assurdo)</li>
-            </ul>
-        </section>
-
-        <section id="paradossi" class="content-section">
-            <h2>🔎 I Paradossi Principali</h2>
-            <div class="paradosso">
-                <h3>1. Il paradosso della dicotomia</h3>
-                <p>Un corpo che deve andare da A a B deve prima passare per il punto medio C, poi per il punto medio tra A e C, e così via all’infinito.<br>→ <strong>Conclusione</strong>: il movimento non può nemmeno iniziare, perché ci sono infiniti punti da attraversare.</p>
+    <section id="vita" class="full-screen-section dark-section">
+        <div class="content-box animate-on-scroll">
+            <p class="section-tag">👤 CHI ERA</p>
+            <div class="split-content">
+                <div class="left-col">
+                    <h3>Il Difensore dell'Uno</h3>
+                    <p>Nato a Elea nel V sec. a.C., Zenone non era un creatore di dottrine, ma un fervente **difensore di Parmenide** e della sua tesi: "tutto è Uno".</p>
+                    <p>La sua missione? Dimostrare che accettare la molteplicità e il movimento porta inevitabilmente a **contraddizioni logiche** insostenibili.</p>
+                </div>
+                <div class="right-col">
+                    <ul>
+                        <li>**Nascita:** Elea, V sec. a.C.</li>
+                        <li>**Maestro:** Parmenide</li>
+                        <li>**Metodo:** Inventore della **Dialettica** (secondo Aristotele).</li>
+                    </ul>
+                </div>
             </div>
-            <div class="paradosso">
-                <h3>2. Achille e la tartaruga</h3>
-                <p>Achille, pur essendo il più veloce, non raggiungerà mai la tartaruga se le concede un vantaggio. Ogni volta che Achille raggiunge il punto dove si trovava la tartaruga, questa si sarà spostata un po' più in avanti, costringendolo a coprire infiniti intervalli.</p>
+        </div>
+    </section>
+
+    <section id="paradossi" class="full-screen-section light-section">
+        <div class="content-box animate-on-scroll">
+            <p class="section-tag">🔎 I PARADOSSI</p>
+            <h3>L'Illusione del Movimento</h3>
+            <div class="paradosso-grid">
+                <div class="paradosso">
+                    <h4>1. La Dicotomia</h4>
+                    <p>Per muoversi da A a B devi prima coprire la metà, e poi la metà della metà... un numero **infinito** di passi. Il movimento non può nemmeno iniziare.</p>
+                </div>
+                <div class="paradosso">
+                    <h4>2. Achille e la Tartaruga</h4>
+                    <p>Achille non raggiungerà mai la tartaruga se le concede un vantaggio, perché ogni volta che copre una distanza, lei si è spostata leggermente in avanti, creando **intervalli infiniti**.</p>
+                </div>
+                <div class="paradosso">
+                    <h4>3. La Freccia Immobile</h4>
+                    <p>In ogni istante, la freccia in volo occupa uno spazio pari a sé stessa: è **ferma**. Se è ferma in ogni istante, è sempre ferma. Il movimento è solo un'illusione.</p>
+                </div>
             </div>
-            <div class="paradosso">
-                <h3>3. La freccia immobile</h3>
-                <p>Una freccia in volo sembra muoversi, ma in ogni singolo istante occupa solo uno spazio pari alla sua lunghezza. Se in ogni istante è ferma, allora è sempre immobile e il suo movimento è un'illusione.</p>
+        </div>
+    </section>
+
+    <section id="risposte" class="full-screen-section dark-section">
+        <div class="content-box animate-on-scroll">
+            <p class="section-tag">🏛️ EREDITÀ</p>
+            <h3>Le Risposte, dalla Filosofia alla Scienza</h3>
+            <p>I paradossi hanno influenzato secoli di pensiero. La matematica moderna (con le **serie convergenti**) e la fisica (con la **Relatività**) hanno offerto le loro soluzioni.</p>
+            <div class="risposta-item">
+                <h4>Einstein e la Relatività</h4>
+                <p>Il Paradosso del Treno dimostra che la **simultaneità** non è assoluta, ma dipende dal sistema di riferimento, proprio come Zenone ci costringeva a rivalutare la nostra percezione del tempo e dello spazio.</p>
             </div>
-        </section>
-
-        <section id="eredita" class="content-section">
-            <h2>🏛️ Le Risposte dei Filosofi e della Scienza</h2>
-            <ul>
-                <li><strong>Aristotele</strong>: i paradossi si basano sull’idea che il tempo sia fatto di istanti separati. In realtà, il tempo è un continuo e il movimento è possibile.</li>
-                <li><strong>Kant</strong>: i paradossi mostrano i limiti della ragione umana quando cerca di pensare l'infinito.</li>
-                <li><strong>Bergson</strong>: Zenone confonde il tempo matematico (astratto, divisibile) con la durata reale (continua e indivisibile).</li>
-                <li><strong>Matematica Moderna</strong>: grazie al concetto di <strong>serie convergente</strong>, si dimostra che la somma di infiniti intervalli può dare un risultato finito. Per questo, Achille raggiunge e supera la tartaruga.</li>
-            </ul>
-            <h3>Dal Paradosso Antico a Quello Moderno</h3>
-            <div class="paradosso">
-                <h4>Il Paradosso del Treno (Einstein)</h4>
-                <p>Due osservatori (uno sul treno in corsa, uno sulla banchina) percepiscono diversamente la simultaneità di due fulmini che cadono alle estremità del treno. Questo dimostra che il tempo non è assoluto, ma <strong>relativo</strong> al sistema di riferimento dell'osservatore.</p>
-            </div>
-        </section>
-        
-        <section id="orale" class="content-section highlight">
-            <h2>🗣️ Spunti per l'Esposizione Orale</h2>
-            <p><strong>Dottrine confutate da Zenone:</strong><br> Principalmente il pluralismo (l'idea che esistano molte cose) e la validità del movimento.</p>
-            <p><strong>Significato del paradosso del treno:</strong><br> La simultaneità di due eventi dipende dal punto di vista dell'osservatore. Non esiste un tempo universale e oggettivo.</p>
-            <p><strong>Riflessione critica:</strong><br> Il paradosso del treno, come quelli di Zenone, ci costringe a mettere in discussione la nostra percezione della realtà. Dimostra che due persone possono vivere lo stesso evento in modo diverso, cambiando la nostra concezione del tempo.</p>
-            <p><strong>Esperienza personale:</strong><br> L'illusione del movimento relativo, come quando sei su un treno fermo e ti sembra che sia il treno accanto a muoversi, è un esempio perfetto di come la percezione dipenda dal sistema di riferimento.</p>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>Progetto realizzato per il corso di Filosofia - Anno Scolastico 2024/2025</p>
-    </footer>
-
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
 </body>
 </html>
