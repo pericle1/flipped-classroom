@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenone di Elea | Progetto Moderno</title>
+    <title>Zenone di Elea | Progetto Liquid Vision</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <nav id="main-nav">
-        <a href="#hero">Zenone</a>
-        <div class="nav-links">
-            <a href="#vita">Chi era</a>
-            <a href="#paradossi">Paradossi</a>
-            <a href="#risposte">Eredità</a>
-        </div>
-    </nav>
-
-    <section id="hero" class="full-screen-section light-section">
-        <div class="content-box animate-fade-in">
-            <p class="pre-title">FILOSOFIA MODERNA</p>
-            <h1>Zenone di Elea</h1>
-            <h2>I paradossi che sfidarono la realtà, oggi.</h2>
-            <a href="#vita" class="cta-button">Scopri di più</a>
+    <section id="hero" class="full-screen-section hero-vision">
+        <div class="animated-liquid-overlay"></div>
+        <div class="hero-content">
+            <h1 class="animate-fade-in-up">Zenone di Elea</h1>
+            <p class="subtitle animate-fade-in-up">I paradossi che sfidarono la realtà.</p>
+            
+            <nav id="vision-menu">
+                <a href="#vita" class="menu-card animate-scale-in">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <h4>Chi era</h4>
+                    <p>Biografia e il ruolo di discepolo.</p>
+                </a>
+                <a href="#paradossi" class="menu-card animate-scale-in delay-1">
+                    <i class="fa-solid fa-infinity"></i>
+                    <h4>I Paradossi</h4>
+                    <p>Dicotomia, Achille e la Freccia.</p>
+                </a>
+                <a href="#risposte" class="menu-card animate-scale-in delay-2">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                    <h4>L'Eredità</h4>
+                    <p>Le risposte di filosofia e scienza.</p>
+                </a>
+            </nav>
         </div>
     </section>
 
@@ -36,12 +45,10 @@
                     <p>Nato a Elea nel V sec. a.C., Zenone non era un creatore di dottrine, ma un fervente **difensore di Parmenide** e della sua tesi: "tutto è Uno".</p>
                     <p>La sua missione? Dimostrare che accettare la molteplicità e il movimento porta inevitabilmente a **contraddizioni logiche** insostenibili.</p>
                 </div>
-                <div class="right-col">
-                    <ul>
-                        <li>**Nascita:** Elea, V sec. a.C.</li>
-                        <li>**Maestro:** Parmenide</li>
-                        <li>**Metodo:** Inventore della **Dialettica** (secondo Aristotele).</li>
-                    </ul>
+                <div class="right-col vision-card-small">
+                    <h4>Zenone e la Dialettica</h4>
+                    <p>Aristotele lo considerò l'inventore della **dialettica**, l'arte di confutare una tesi assumendola come vera per poi mostrarne l'assurdità (**dimostrazione per assurdo**).</p>
+                    <a href="#paradossi" class="vision-link">Vedi i Paradossi <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -52,17 +59,17 @@
             <p class="section-tag">🔎 I PARADOSSI</p>
             <h3>L'Illusione del Movimento</h3>
             <div class="paradosso-grid">
-                <div class="paradosso">
+                <div class="paradosso vision-card-small">
                     <h4>1. La Dicotomia</h4>
-                    <p>Per muoversi da A a B devi prima coprire la metà, e poi la metà della metà... un numero **infinito** di passi. Il movimento non può nemmeno iniziare.</p>
+                    <p>Per muoversi da A a B devi prima coprire la metà, e poi la metà della metà... il movimento **non può iniziare**.</p>
                 </div>
-                <div class="paradosso">
+                <div class="paradosso vision-card-small">
                     <h4>2. Achille e la Tartaruga</h4>
-                    <p>Achille non raggiungerà mai la tartaruga se le concede un vantaggio, perché ogni volta che copre una distanza, lei si è spostata leggermente in avanti, creando **intervalli infiniti**.</p>
+                    <p>Achille non raggiungerà mai la tartaruga a causa degli **intervalli infiniti** che deve coprire.</p>
                 </div>
-                <div class="paradosso">
+                <div class="paradosso vision-card-small">
                     <h4>3. La Freccia Immobile</h4>
-                    <p>In ogni istante, la freccia in volo occupa uno spazio pari a sé stessa: è **ferma**. Se è ferma in ogni istante, è sempre ferma. Il movimento è solo un'illusione.</p>
+                    <p>Se in ogni istante la freccia è ferma, allora è **sempre immobile**. Il movimento è un'illusione.</p>
                 </div>
             </div>
         </div>
@@ -72,12 +79,21 @@
         <div class="content-box animate-on-scroll">
             <p class="section-tag">🏛️ EREDITÀ</p>
             <h3>Le Risposte, dalla Filosofia alla Scienza</h3>
-            <p>I paradossi hanno influenzato secoli di pensiero. La matematica moderna (con le **serie convergenti**) e la fisica (con la **Relatività**) hanno offerto le loro soluzioni.</p>
-            <div class="risposta-item">
-                <h4>Einstein e la Relatività</h4>
-                <p>Il Paradosso del Treno dimostra che la **simultaneità** non è assoluta, ma dipende dal sistema di riferimento, proprio come Zenone ci costringeva a rivalutare la nostra percezione del tempo e dello spazio.</p>
+            <div class="split-content">
+                <div class="left-col vision-card-small">
+                    <h4>Serie Convergenti (Matematica)</h4>
+                    <p>La matematica dimostra che la somma di infiniti intervalli può dare un risultato finito. **Achille raggiunge la tartaruga** in un tempo calcolabile.</p>
+                </div>
+                <div class="right-col vision-card-small">
+                    <h4>Einstein e la Relatività</h4>
+                    <p>I paradossi ci costringono a riconsiderare la nostra percezione di tempo e spazio, proprio come la Relatività ha sfidato il concetto di **simultaneità assoluta**.</p>
+                </div>
             </div>
+            
         </div>
+        <footer class="vision-footer">
+             <a href="#hero" class="vision-link">Torna su <i class="fa-solid fa-circle-up"></i></a>
+        </footer>
     </section>
     
     <script src="script.js"></script>
