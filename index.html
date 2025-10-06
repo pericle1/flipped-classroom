@@ -3,563 +3,404 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenone di Elea | Filosofia Presocratica</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Zenone di Elea - I paradossi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a3a 0%, #0d1b2a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid #4a6572;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            color: #f9a825;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: #b0bec5;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-item {
+            background: rgba(74, 101, 114, 0.3);
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #4a6572;
+            font-weight: bold;
+        }
+        
+        .nav-item:hover {
+            background: rgba(249, 168, 37, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .content-section {
+            background: rgba(30, 45, 60, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #f9a825;
+        }
+        
+        h2 {
+            color: #f9a825;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 1px solid #4a6572;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #ffb74d;
+            margin: 20px 0 15px 0;
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .quote {
+            font-style: italic;
+            border-left: 3px solid #f9a825;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #b0bec5;
+        }
+        
+        .highlight {
+            color: #f9a825;
+            font-weight: bold;
+        }
+        
+        .timeline-container, .quiz-container {
+            display: none;
+            background: rgba(30, 45, 60, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid #f9a825;
+            position: relative;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #f9a825;
+            left: -7px;
+            top: 5px;
+        }
+        
+        .timeline-date {
+            color: #ffb74d;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .quiz-question {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #4a6572;
+        }
+        
+        .quiz-options {
+            margin-left: 20px;
+        }
+        
+        .quiz-option {
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .quiz-option:hover {
+            background: rgba(74, 101, 114, 0.3);
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-item {
+                width: 80%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Home Section -->
-    <section id="home" class="section active">
-        <div id="particles-js"></div>
-        <div class="background-slider">
-            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1555099962-4199c345e546?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"></div>
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2067&q=80')"></div>
-        </div>
+    <div class="container">
+        <header>
+            <h1>ZENONE</h1>
+            <div class="subtitle">I paradossi che sfidarono la realtà</div>
+            <div class="nav-menu">
+                <div class="nav-item" onclick="showSection('biografia')">Chi era</div>
+                <div class="nav-item" onclick="showSection('pensiero')">Il Pensiero</div>
+                <div class="nav-item" onclick="showSection('paradossi')">I Paradossi</div>
+                <div class="nav-item" onclick="showSection('eredita')">L'Eredità</div>
+                <div class="nav-item" onclick="showSection('timeline')">Timeline</div>
+                <div class="nav-item" onclick="showSection('quiz')">Quiz</div>
+            </div>
+        </header>
         
-        <div class="glass-overlay"></div>
+        <section id="biografia" class="content-section active">
+            <h2>Chi era Zenone</h2>
+            <h3>Il Filosofo di Elea</h3>
+            <p>Zenone di Elea fu un filosofo greco presocratico nato a Elea (nell'odierna Italia meridionale) intorno al 490 a.C. e morto intorno al 430 a.C. È noto principalmente per i suoi paradossi che sfidano le nozioni comuni di spazio, tempo e movimento.</p>
+            
+            <p>Fu allievo e sostenitore di <span class="highlight">Parmenide</span>, fondatore della scuola eleatica, che sosteneva l'unità e l'immutabilità dell'essere contro l'evidenza sensibile del divenire e della molteplicità.</p>
+            
+            <p>Aristotele lo considerava l'inventore della <span class="highlight">dialettica</span>, l'arte di confutare le tesi avversarie attraverso argomenti logici stringenti. Il suo metodo preferito era la dimostrazione per assurdo: assumeva provvisoriamente la tesi dell'avversario e ne mostrava le contraddizioni interne.</p>
+        </section>
         
-        <div class="content">
-            <!-- Titolo con effetto hover -->
-            <div class="title-container">
-                <h1 class="main-title" id="zenone-title">ZENONE</h1>
-                <div class="floating-images">
-                    <div class="floating-image img-1" style="background-image: url('https://cdn-icons-png.flaticon.com/512/4576/4576683.png')"></div>
-                    <div class="floating-image img-2" style="background-image: url('https://images.unsplash.com/photo-1555099962-4199c345e546?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80')"></div>
+        <section id="pensiero" class="content-section">
+            <h2>Il Pensiero</h2>
+            <h3>Obiettivo del suo Filosofare</h3>
+            <p>Lo scopo principale di Zenone era difendere le tesi del maestro Parmenide contro chi sosteneva la molteplicità e il movimento. Mostrava che accettare la pluralità o il moto portava a inevitabili contraddizioni logiche.</p>
+            
+            <div class="quote">"Quanto si muove, né nel luogo in cui è viene a muoversi, né in quello in cui non è"<br>— Diogene Laerzio, IX, 72</div>
+            
+            <h3>Zenone e la Dialettica</h3>
+            <p>Aristotele attribuisce a Zenone l'invenzione della dialettica, l'arte di discutere per difendere una tesi e confutare quella avversaria. Zenone anticipa così il metodo socratico e la logica formale.</p>
+            
+            <ul>
+                <li><span class="highlight">Principio di non contraddizione</span>: una proposizione non può essere vera e falsa simultaneamente</li>
+                <li><span class="highlight">Riduzione all'impossibile (dimostrazione per assurdo)</span>: si assume provvisoriamente vera la tesi avversaria e si mostra che conduce a conseguenze impossibili o contraddittorie</li>
+            </ul>
+        </section>
+        
+        <section id="paradossi" class="content-section">
+            <h2>I Paradossi</h2>
+            <p>Zenone è famoso per i suoi paradossi sul movimento e sulla pluralità, concepiti per sostenere le tesi di Parmenide sull'unità e immutabilità dell'essere.</p>
+            
+            <h3>Il Paradosso di Achille e la Tartaruga</h3>
+            <p>Achille, il piè veloce, non potrà mai superare una tartaruga se le concede un vantaggio iniziale. Per raggiungerla, dovrà prima arrivare al punto da cui è partita la tartaruga, ma nel frattempo questa si sarà spostata ulteriormente, e così all'infinito.</p>
+            
+            <h3>Il Paradosso della Dicotomia</h3>
+            <p>Per percorrere qualsiasi distanza, si deve prima percorrerne la metà, poi la metà della metà rimanente, e così via all'infinito. Poiché è impossibile compiere infinite azioni in tempo finito, il movimento stesso risulta impossibile.</p>
+            
+            <h3>Il Paradosso della Freccia</h3>
+            <p>In ogni istante, una freccia in volo occupa uno spazio uguale a se stessa, quindi è ferma in quello spazio. Se in ogni istante è ferma, allora è sempre ferma, e il movimento è solo un'illusione.</p>
+            
+            <h3>Il Paradosso dello Stadio</h3>
+            <p>Dimostra le contraddizioni che emergono quando si assume che il tempo e lo spazio siano composti da unità indivisibili, mettendo in discussione la stessa idea di pluralità.</p>
+        </section>
+        
+        <section id="eredita" class="content-section">
+            <h2>L'Eredità</h2>
+            <p>I paradossi di Zenone hanno influenzato profondamente lo sviluppo della filosofia e della matematica occidentale, stimolando riflessioni su infinito, continuità e discreto che hanno trovato parziale soluzione solo con l'invenzione del calcolo infinitesimale nel XVII secolo.</p>
+            
+            <h3>Impatto sulla Filosofia</h3>
+            <p>I paradossi di Zenone costrinsero i filosofi successivi a confrontarsi con problemi fondamentali riguardanti la natura dello spazio, del tempo e del movimento, influenzando pensatori come Platone, Aristotele e i filosofi medievali.</p>
+            
+            <h3>Impatto sulla Matematica</h3>
+            <p>Le aporie di Zenone anticiparono questioni relative all'infinito matematico e alla continuità che sarebbero state affrontate compiutamente solo con i lavori di Newton, Leibniz e, successivamente, con la teoria dei limiti e dell'analisi matematica.</p>
+            
+            <h3>Zenone nella Cultura Moderna</h3>
+            <p>I paradossi di Zenone continuano a essere studiati e discussi in filosofia, fisica e matematica, e sono diventati parte del patrimonio culturale occidentale, citati in opere letterarie e riflessioni sul paradosso del continuo e sulla natura del tempo.</p>
+        </section>
+        
+        <section id="timeline" class="timeline-container">
+            <h2>Timeline Storica</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">490 a.C. circa</div>
+                <p>Nascita di Zenone a Elea, nella Magna Grecia (attuale Italia meridionale)</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">470 a.C. circa</div>
+                <p>Zenone diventa discepolo di Parmenide e inizia a sviluppare i suoi argomenti dialettici</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">450 a.C. circa</div>
+                <p>Zenone visita Atene dove incontra Socrate e espone i suoi paradossi</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">430 a.C. circa</div>
+                <p>Morte di Zenone (secondo la tradizione, per aver partecipato a una cospirazione contro un tiranno)</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">IV secolo a.C.</div>
+                <p>Aristotele analizza e critica i paradossi di Zenone nella Fisica</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">XVII secolo d.C.</div>
+                <p>Con l'invenzione del calcolo infinitesimale, Newton e Leibniz forniscono strumenti matematici per affrontare i paradossi del movimento</p>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">XIX-XXI secolo</div>
+                <p>I paradossi di Zenone continuano a essere oggetto di studio in filosofia, matematica e fisica teorica</p>
+            </div>
+        </section>
+        
+        <section id="quiz" class="quiz-container">
+            <h2>Quiz su Zenone</h2>
+            
+            <div class="quiz-question">
+                <p>1. Qual era lo scopo principale dei paradossi di Zenone?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, 'correct')">Difendere le tesi di Parmenide sull'unità dell'essere</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">Dimostrare la superiorità della matematica greca</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">Confutare le teorie di Aristotele sul movimento</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">Promuovere lo scetticismo filosofico</div>
                 </div>
             </div>
             
-            <p class="subtitle">I paradossi che sfidarono la realtà</p>
+            <div class="quiz-question">
+                <p>2. Quale di questi NON è un paradosso di Zenone?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">Achille e la tartaruga</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">La freccia</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'correct')">Il paradosso del mentitore</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">La dicotomia</div>
+                </div>
+            </div>
             
-            <nav class="main-nav">
-                <button class="glass-btn" onclick="showSection('vita')">
-                    <div class="btn-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <span class="btn-text">Chi era</span>
-                </button>
-                
-                <button class="glass-btn" onclick="showSection('pensiero')">
-                    <div class="btn-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <span class="btn-text">Il Pensiero</span>
-                </button>
-                
-                <button class="glass-btn" onclick="showSection('paradossi')">
-                    <div class="btn-icon">
-                        <i class="fas fa-infinity"></i>
-                    </div>
-                    <span class="btn-text">I Paradossi</span>
-                </button>
-                
-                <button class="glass-btn" onclick="showSection('eredita')">
-                    <div class="btn-icon">
-                        <i class="fas fa-monument"></i>
-                    </div>
-                    <span class="btn-text">L'Eredità</span>
-                </button>
+            <div class="quiz-question">
+                <p>3. Chi considerava Zenone l'inventore della dialettica?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">Platone</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'correct')">Aristotele</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">Socrate</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">Eraclito</div>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <p>4. Quale metodo dimostrativo preferiva Zenone?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">L'induzione</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">L'analogia</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'correct')">La dimostrazione per assurdo</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">L'osservazione empirica</div>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <p>5. In quale città nacque Zenone?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">Atene</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'correct')">Elea</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">Mileto</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">Siracusa</div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-                <button class="glass-btn" onclick="showSection('timeline')">
-                    <div class="btn-icon">
-                        <i class="fas fa-history"></i>
-                    </div>
-                    <span class="btn-text">Timeline</span>
-                </button>
-
-                <button class="glass-btn" onclick="showSection('quiz')">
-                    <div class="btn-icon">
-                        <i class="fas fa-puzzle-piece"></i>
-                    </div>
-                    <span class="btn-text">Quiz</span>
-                </button>
-            </nav>
-        </div>
-    </section>
-
-    <!-- Sezione Chi Era -->
-    <section id="vita" class="section">
-        <div class="content">
-            <button class="back-btn glass-btn" onclick="showSection('home')">
-                <i class="fas fa-arrow-left"></i>
-                <span>Torna alla Home</span>
-            </button>
-            
-            <div class="section-header">
-                <h2>👤 Chi era Zenone</h2>
-            </div>
-            
-            <div class="text-content">
-                <div class="glass-card">
-                    <h3>Il Filosofo di Elea</h3>
-                    <ul>
-                        <li>Nato a <strong>Elea</strong> (Magna Grecia) nel V sec. a.C.</li>
-                        <li>Discepolo e difensore di <strong>Parmenide</strong>, che sosteneva il monismo: "tutto è Uno".</li>
-                        <li>Considerato da Aristotele l'inventore della <strong>dialettica</strong>, cioè l'arte di discutere e confutare con argomenti stringenti.</li>
-                        <li>Usava la <strong>dimostrazione per assurdo</strong>: assumeva la tesi dell'avversario e ne mostrava le contraddizioni interne.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione Il Pensiero -->
-    <section id="pensiero" class="section">
-        <div class="content">
-            <button class="back-btn glass-btn" onclick="showSection('home')">
-                <i class="fas fa-arrow-left"></i>
-                <span>Torna alla Home</span>
-            </button>
-            
-            <div class="section-header">
-                <h2>🧠 Il Pensiero</h2>
-            </div>
-            
-            <div class="text-content">
-                <div class="glass-card">
-                    <h3>Obiettivo del suo Filosofare</h3>
-                    <p>Lo scopo di Zenone era difendere la tesi parmenidea contro chi sosteneva la molteplicità e il movimento, mostrando che accettare la pluralità o il moto porta a inevitabili contraddizioni logiche.</p>
-                </div>
-                
-                <div class="glass-card quote-card">
-                    <blockquote>
-                        «Quanto si muove, né nel luogo in cui è viene a muoversi, né in quello in cui non è»
-                        <cite>– Diogene Laerzio, IX, 72</cite>
-                    </blockquote>
-                </div>
-                
-                <div class="glass-card">
-                    <h3>Zenone e la Dialettica</h3>
-                    <p>Aristotele attribuisce a Zenone l'invenzione della dialettica, l'arte di discutere per difendere una tesi e confutare quella avversaria. Zenone anticipa il metodo socratico e la logica aristotelica usando:</p>
-                    <ul>
-                        <li>Principio di non contraddizione</li>
-                        <li>Riduzione all'impossibile (dimostrazione per assurdo)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione I Paradossi -->
-    <section id="paradossi" class="section">
-        <div class="content">
-            <button class="back-btn glass-btn" onclick="showSection('home')">
-                <i class="fas fa-arrow-left"></i>
-                <span>Torna alla Home</span>
-            </button>
-            
-            <div class="section-header">
-                <h2>🔎 I Paradossi</h2>
-            </div>
-            
-            <div class="cards-grid">
-                <div class="glass-card paradox-card">
-                    <div class="card-number">01</div>
-                    <h3>La Dicotomia</h3>
-                    <p>Un corpo che deve andare da A a B deve prima passare per il punto medio C, poi per il punto medio tra A e C, e così via all'infinito.<br><strong>Conclusione</strong>: il movimento non può nemmeno iniziare, perché ci sono infiniti punti da attraversare.</p>
-                </div>
-                
-                <div class="glass-card paradox-card">
-                    <div class="card-number">02</div>
-                    <h3>Achille e la Tartaruga</h3>
-                    <p>Achille, pur essendo il più veloce, non raggiungerà mai la tartaruga se le concede un vantaggio. Ogni volta che Achille raggiunge il punto dove si trovava la tartaruga, questa si sarà spostata un po' più in avanti, costringendolo a coprire infiniti intervalli.</p>
-                </div>
-                
-                <div class="glass-card paradox-card">
-                    <div class="card-number">03</div>
-                    <h3>La Freccia Immobile</h3>
-                    <p>Una freccia in volo sembra muoversi, ma in ogni singolo istante occupa solo uno spazio pari alla sua lunghezza. Se in ogni istante è ferma, allora è sempre immobile e il suo movimento è un'illusione.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione L'Eredità -->
-    <section id="eredita" class="section">
-        <div class="content">
-            <button class="back-btn glass-btn" onclick="showSection('home')">
-                <i class="fas fa-arrow-left"></i>
-                <span>Torna alla Home</span>
-            </button>
-            
-            <div class="section-header">
-                <h2>🏛️ L'Eredità</h2>
-            </div>
-            
-            <div class="text-content">
-                <div class="glass-card">
-                    <h3>Le Risposte dei Filosofi e della Scienza</h3>
-                    <ul>
-                        <li><strong>Aristotele</strong>: i paradossi si basano sull'idea che il tempo sia fatto di istanti separati. In realtà, il tempo è un continuo e il movimento è possibile.</li>
-                        <li><strong>Kant</strong>: i paradossi mostrano i limiti della ragione umana quando cerca di pensare l'infinito.</li>
-                        <li><strong>Bergson</strong>: Zenone confonde il tempo matematico (astratto, divisibile) con la durata reale (continua e indivisibile).</li>
-                        <li><strong>Matematica Moderna</strong>: grazie al concetto di <strong>serie convergente</strong>, si dimostra che la somma di infiniti intervalli può dare un risultato finito. Per questo, Achille raggiunge e supera la tartaruga.</li>
-                    </ul>
-                </div>
-
-                <div class="glass-card">
-                    <h3>Dal Paradosso Antico a Quello Moderno</h3>
-                    <div class="glass-card inner-card">
-                        <h4>Il Paradosso del Treno (Einstein)</h4>
-                        <p>Due osservatori (uno sul treno in corsa, uno sulla banchina) percepiscono diversamente la simultaneità di due fulmini che cadono alle estremità del treno. Questo dimostra che il tempo non è assoluto, ma <strong>relativo</strong> al sistema di riferimento dell'osservatore.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione Timeline -->
-    <section id="timeline" class="section">
-        <div class="content">
-            <button class="back-btn glass-btn" onclick="showSection('home')">
-                <i class="fas fa-arrow-left"></i>
-                <span>Torna alla Home</span>
-            </button>
-            
-            <div class="section-header">
-                <h2>📜 Timeline Storica</h2>
-            </div>
-            
-            <div class="timeline-container">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">490-430 a.C.</div>
-                        <div class="timeline-content">
-                            <h3>Vita di Zenone</h3>
-                            <p>Zenone di Elea sviluppa i suoi paradossi per difendere le teorie di Parmenide</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">IV sec. a.C.</div>
-                        <div class="timeline-content">
-                            <h3>Aristotele</h3>
-                            <p>Analizza e critica i paradossi di Zenone nella sua "Fisica"</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">XVII sec.</div>
-                        <div class="timeline-content">
-                            <h3>Rivoluzione Scientifica</h3>
-                            <p>Newton e Leibniz sviluppano il calcolo infinitesimale, fornendo strumenti matematici per risolvere i paradossi</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">XIX sec.</div>
-                        <div class="timeline-content">
-                            <h3>Matematica Moderna</h3>
-                            <p>Weierstrass e Cantor formalizzano i concetti di limite e infinito</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">1905</div>
-                        <div class="timeline-content">
-                            <h3>Einstein</h3>
-                            <p>La teoria della relatività speciale rivoluziona il concetto di tempo e spazio</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">Oggi</div>
-                        <div class="timeline-content">
-                            <h3>Attualità</h3>
-                            <p>I paradossi di Zenone continuano a influenzare filosofia, matematica e fisica quantistica</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione Quiz -->
-    <section id="quiz" class="section">
-        <div class="content">
-            <button class="back-btn glass-btn" onclick="showSection('home')">
-                <i class="fas fa-arrow-left"></i>
-                <span>Torna alla Home</span>
-            </button>
-            
-            <div class="section-header">
-                <h2>🎯 Quiz sui Paradossi</h2>
-                <p class="quiz-score">Punteggio: <span id="score">0</span>/5</p>
-            </div>
-            
-            <div class="quiz-container">
-                <div class="quiz-progress">
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progress-fill"></div>
-                    </div>
-                    <span class="progress-text">Domanda <span id="current-question">1</span>/5</span>
-                </div>
-                
-                <div class="quiz-content">
-                    <div class="question-container">
-                        <h3 id="question-text">Quale di questi NON è un paradosso di Zenone?</h3>
-                    </div>
-                    
-                    <div class="options-container" id="options-container">
-                        <!-- Le opzioni verranno inserite qui dinamicamente -->
-                    </div>
-                    
-                    <div class="quiz-feedback" id="feedback"></div>
-                    
-                    <button class="quiz-next-btn" id="next-btn" onclick="nextQuestion()" style="display: none;">
-                        Prossima Domanda <i class="fas fa-arrow-right"></i>
-                    </button>
-                    
-                    <button class="quiz-restart-btn" id="restart-btn" onclick="restartQuiz()" style="display: none;">
-                        <i class="fas fa-redo"></i> Rifai il Quiz
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Script per Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Funzione semplice per mostrare le sezioni
         function showSection(sectionId) {
-            console.log('Mostrando sezione:', sectionId);
-            
             // Nascondi tutte le sezioni
-            document.querySelectorAll('.section').forEach(section => {
+            const sections = document.querySelectorAll('.content-section, .timeline-container, .quiz-container');
+            sections.forEach(section => {
                 section.classList.remove('active');
             });
             
-            // Mostra la sezione richiesta
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
+            // Mostra la sezione selezionata
+            document.getElementById(sectionId).classList.add('active');
+        }
+        
+        function checkAnswer(element, type) {
+            const options = element.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none'; // Disabilita ulteriori click
+            });
+            
+            if (type === 'correct') {
+                element.style.backgroundColor = 'rgba(76, 175, 80, 0.3)';
+                element.style.border = '1px solid #4caf50';
+            } else {
+                element.style.backgroundColor = 'rgba(244, 67, 54, 0.3)';
+                element.style.border = '1px solid #f44336';
+                
+                // Evidenzia anche la risposta corretta
+                const correctOption = element.parentElement.querySelector('[onclick*="correct"]');
+                if (correctOption) {
+                    correctOption.style.backgroundColor = 'rgba(76, 175, 80, 0.3)';
+                    correctOption.style.border = '1px solid #4caf50';
+                }
             }
         }
-
-        // Background Slider per Hero
+        
+        // Inizializza mostrando la sezione biografia
         document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slide');
-            let currentSlide = 0;
-            
-            function nextSlide() {
-                if (slides.length > 0) {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }
-            }
-            
-            // Cambia slide ogni 5 secondi (solo nella home)
-            setInterval(() => {
-                if (document.getElementById('home').classList.contains('active')) {
-                    nextSlide();
-                }
-            }, 5000);
-
-            // Gestione tasto ESC per tornare alla home
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    showSection('home');
-                }
-            });
-
-            // Inizializza Particles.js
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 40, density: { enable: true, value_area: 800 } },
-                    color: { value: '#ffffff' },
-                    shape: { type: 'circle' },
-                    opacity: { value: 0.3, random: true },
-                    size: { value: 3, random: true },
-                    line_linked: { 
-                        enable: true, 
-                        distance: 150, 
-                        color: '#ffffff', 
-                        opacity: 0.2, 
-                        width: 1 
-                    },
-                    move: { 
-                        enable: true, 
-                        speed: 1, 
-                        direction: 'none', 
-                        random: false, 
-                        straight: false, 
-                        out_mode: 'out', 
-                        bounce: false 
-                    }
-                },
-                interactivity: {
-                    detect_on: 'canvas',
-                    events: {
-                        onhover: { enable: true, mode: 'repulse' },
-                        onclick: { enable: true, mode: 'push' }
-                    }
-                }
-            });
-            
-            // Inizializza il quiz
-            initQuiz();
-            
-            console.log('Sito Zenone - Caricamento completato');
+            showSection('biografia');
         });
-
-        // QUIZ LOGIC
-        let currentQuestion = 0;
-        let score = 0;
-        let questions = [];
-
-        function initQuiz() {
-            questions = [
-                {
-                    question: "Quale di questi NON è un paradosso di Zenone?",
-                    options: [
-                        "La Dicotomia",
-                        "Achille e la Tartaruga", 
-                        "Il Dilemma del Prigioniero",
-                        "La Freccia Immobile"
-                    ],
-                    correct: 2
-                },
-                {
-                    question: "Qual era lo scopo principale dei paradossi di Zenone?",
-                    options: [
-                        "Dimostrare l'esistenza di Dio",
-                        "Confutare le teorie di Parmenide",
-                        "Difendere la teoria di Parmenide sull'Uno",
-                        "Promuovere il movimento e il cambiamento"
-                    ],
-                    correct: 2
-                },
-                {
-                    question: "Secondo il paradosso di Achille e la Tartaruga:",
-                    options: [
-                        "Achille vince sempre la corsa",
-                        "La tartaruga vince grazie alla sua perseveranza",
-                        "Achille non raggiunge mai la tartaruga",
-                        "La corsa termina in pareggio"
-                    ],
-                    correct: 2
-                },
-                {
-                    question: "Come viene risolto matematicamente il paradosso della Dicotomia?",
-                    options: [
-                        "Con la teoria dei numeri primi",
-                        "Con le serie convergenti",
-                        "Con il calcolo delle probabilità",
-                        "Con la geometria non euclidea"
-                    ],
-                    correct: 1
-                },
-                {
-                    question: "Quale filosofo considerava Zenone l'inventore della dialettica?",
-                    options: [
-                        "Platone",
-                        "Socrate", 
-                        "Aristotele",
-                        "Epicuro"
-                    ],
-                    correct: 2
-                }
-            ];
-            displayQuestion();
-        }
-
-        function displayQuestion() {
-            const question = questions[currentQuestion];
-            document.getElementById('question-text').textContent = question.question;
-            document.getElementById('current-question').textContent = currentQuestion + 1;
-            
-            const optionsContainer = document.getElementById('options-container');
-            optionsContainer.innerHTML = '';
-            
-            question.options.forEach((option, index) => {
-                const button = document.createElement('button');
-                button.className = 'quiz-option';
-                button.textContent = option;
-                button.onclick = () => checkAnswer(index);
-                optionsContainer.appendChild(button);
-            });
-            
-            // Aggiorna la barra di progresso
-            const progress = ((currentQuestion) / questions.length) * 100;
-            document.getElementById('progress-fill').style.width = progress + '%';
-            
-            // Nascondi i pulsanti di navigazione
-            document.getElementById('next-btn').style.display = 'none';
-            document.getElementById('restart-btn').style.display = 'none';
-            document.getElementById('feedback').style.display = 'none';
-        }
-
-        function checkAnswer(selectedIndex) {
-            const question = questions[currentQuestion];
-            const options = document.querySelectorAll('.quiz-option');
-            const feedback = document.getElementById('feedback');
-            
-            // Disabilita tutti i pulsanti
-            options.forEach(option => {
-                option.disabled = true;
-            });
-            
-            // Mostra le risposte corrette/errate
-            options.forEach((option, index) => {
-                if (index === question.correct) {
-                    option.classList.add('correct');
-                } else if (index === selectedIndex) {
-                    option.classList.add('incorrect');
-                }
-            });
-            
-            // Controlla se la risposta è corretta
-            if (selectedIndex === question.correct) {
-                score++;
-                feedback.textContent = '✅ Corretto!';
-                feedback.className = 'quiz-feedback correct';
-            } else {
-                feedback.textContent = '❌ Sbagliato! La risposta corretta è: ' + question.options[question.correct];
-                feedback.className = 'quiz-feedback incorrect';
-            }
-            
-            feedback.style.display = 'block';
-            document.getElementById('score').textContent = score;
-            
-            // Mostra il pulsante successivo o di ricominciamento
-            if (currentQuestion < questions.length - 1) {
-                document.getElementById('next-btn').style.display = 'flex';
-            } else {
-                document.getElementById('restart-btn').style.display = 'flex';
-                showFinalScore();
-            }
-        }
-
-        function nextQuestion() {
-            currentQuestion++;
-            displayQuestion();
-        }
-
-        function restartQuiz() {
-            currentQuestion = 0;
-            score = 0;
-            document.getElementById('score').textContent = '0';
-            initQuiz();
-        }
-
-        function showFinalScore() {
-            const feedback = document.getElementById('feedback');
-            let message = '';
-            
-            if (score === questions.length) {
-                message = '🎉 Perfetto! Sei un esperto di Zenone!';
-            } else if (score >= questions.length * 0.7) {
-                message = '👍 Ottimo! Conosci bene i paradossi di Zenone!';
-            } else if (score >= questions.length * 0.5) {
-                message = '😊 Buono! Hai una buona conoscenza di base.';
-            } else {
-                message = '📚 Studia ancora un po\' i paradossi di Zenone!';
-            }
-            
-            feedback.textContent = `Quiz completato! ${message} Punteggio finale: ${score}/${questions.length}`;
-        }
     </script>
 </body>
 </html>
