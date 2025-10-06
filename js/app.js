@@ -1,36 +1,53 @@
-/* --- CONFIGURAZIONE PARTICLES.JS --- */
-// Questo codice disegna il background animato
-particlesJS('particles-js', {
-  particles: {
-    number: { value: 60, density: { enable: true, value_area: 800 } },
-    color: { value: '#ffffff' },
-    shape: { type: 'circle' },
-    opacity: { value: 0.5, random: true },
-    size: { value: 2, random: true },
-    line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
-    move: { enable: true, speed: 1, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
-  },
-  interactivity: {
-    detect_on: 'canvas',
-    events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
-    modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
-  },
-  retina_detect: true
-});
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. ANIMAZIONE FLUIDA SU SCROLL (Intersection Observer)
+    
+    // Seleziona tutti gli elementi con la classe per l'animazione
+    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll, .animate-fade-in');
 
-/* --- LOGICA PER LE ANIMAZIONI ALLO SCORRIMENTO --- */
-// Questa funzione rileva quando un elemento entra nello schermo
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else {
-            // Optional: rimuovi la classe se vuoi che l'animazione si ripeta ogni volta
-            // entry.target.classList.remove('show');
-        }
+    // Opzioni per l'osservatore: l'elemento deve essere visibile per almeno il 10%
+    const observerOptions = {
+        root: null, // viewport come radice
+        rootMargin: '0px',
+        threshold: 0.1 // 10% dell'elemento deve essere visibile
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Se l'elemento è visibile, aggiunge la classe per animarlo
+                entry.target.classList.add('is-visible');
+                // Smette di osservare l'elemento dopo la prima animazione
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    // Inizializza l'osservatore su tutti gli elementi
+    elementsToAnimate.forEach(element => {
+        observer.observe(element);
     });
-});
 
-// Dice all'observer quali elementi osservare (tutti quelli con la classe .hidden)
-const hiddenElements = document.querySelectorAll('.hidden');
-hiddenElements.forEach((el) => observer.observe(el));
+
+    // 2. SCORRIMENTO FLUIDO TRA LE SEZIONI (Garantito)
+
+    const navLinks = document.querySelectorAll('#main-nav a, .cta-button');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Evita il comportamento di salto immediato predefinito
+            e.preventDefault(); 
+            
+            // Ottiene l'ID della sezione di destinazione (e.g., #vita)
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                // Scorrimento fluido alla sezione
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+});
