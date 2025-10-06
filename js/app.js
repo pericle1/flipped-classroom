@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. ANIMAZIONE FLUIDA SU SCROLL (Intersection Observer)
     
     // Seleziona tutti gli elementi con la classe per l'animazione
-    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll, .animate-fade-in');
+    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
 
     // Opzioni per l'osservatore: l'elemento deve essere visibile per almeno il 10%
     const observerOptions = {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. SCORRIMENTO FLUIDO TRA LE SEZIONI (Garantito)
 
-    const navLinks = document.querySelectorAll('#main-nav a, .cta-button');
+    const navLinks = document.querySelectorAll('#vision-menu a, .vision-link');
 
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
