@@ -1,514 +1,251 @@
-/* Reset e Variabili Globali - Stile Glass */
-:root {
-    --black: #000000;
-    --white: #ffffff;
-    --gray: #8e8e93;
-    --glass-bg: rgba(255, 255, 255, 0.15);
-    --glass-border: rgba(255, 255, 255, 0.25);
-    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    --glass-highlight: rgba(255, 255, 255, 0.1);
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
+/* Aggiungi queste regole al CSS esistente */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    height: 100%;
-    font-family: var(--font-primary);
-    background-color: var(--black);
-    color: var(--white);
-    overflow: hidden;
-}
-
-/* Sezioni */
-.section {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* Timeline */
+.timeline-container {
+    max-width: 900px;
     width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    overflow-y: auto;
-    z-index: 1;
-}
-
-.section.active {
-    opacity: 1;
-    visibility: visible;
-    z-index: 2;
-}
-
-/* Background Slider per Hero */
-.background-slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-}
-
-.slide.active {
-    opacity: 1;
-}
-
-.glass-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.7) 0%,
-        rgba(0, 0, 0, 0.4) 50%,
-        rgba(0, 0, 0, 0.7) 100%
-    );
-    backdrop-filter: blur(60px);
-    -webkit-backdrop-filter: blur(60px);
-    z-index: -1;
-}
-
-/* Contenuto Centrale */
-.content {
-    max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
 
-/* Hero Section - contenuto centrato */
-#home .content {
-    justify-content: center;
-}
-
-/* Altre sezioni - contenuto inizia dall'alto */
-.section:not(#home) .content {
-    justify-content: flex-start;
-    padding-top: 6rem;
-}
-
-/* TITOLO CON EFFETTO HOVER */
-.title-container {
+.timeline {
     position: relative;
-    display: inline-block;
-    margin-bottom: 0.5rem;
+    padding: 2rem 0;
 }
 
-.main-title {
-    font-size: 5.5rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: var(--white);
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 10;
-}
-
-.title-container:hover .main-title {
-    transform: scale(1.05);
-    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-}
-
-/* IMMAGINI FLUTTUANTI */
-.floating-images {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.floating-image {
-    position: absolute;
-    width: 140px;
-    height: 140px;
-    border-radius: 20px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0;
-    transform: scale(0.3);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    z-index: 5;
-}
-
-/* Solo 2 immagini in alto ai lati */
-.title-container:hover .img-1 {
-    opacity: 1;
-    transform: translate(-200px, -50px) scale(1) rotate(-5deg);
-}
-
-.title-container:hover .img-2 {
-    opacity: 1;
-    transform: translate(200px, -50px) scale(1) rotate(5deg);
-}
-
-/* Posizionamento iniziale delle immagini */
-.img-1 {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.3);
-}
-
-.img-2 {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.3);
-}
-
-.subtitle {
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--gray);
-    margin-bottom: 4rem;
-    letter-spacing: 0.02em;
-    position: relative;
-    z-index: 10;
-}
-
-/* BOTTONI GLASS - Stile come nell'immagine */
-.main-nav {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-    max-width: 500px;
-    width: 100%;
-    position: relative;
-    z-index: 10;
-}
-
-.glass-btn {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 18px;
-    padding: 1.8rem 1.2rem;
-    color: var(--white);
-    font-size: 1.1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.glass-btn::before {
+.timeline::before {
     content: '';
     position: absolute;
+    left: 50%;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--glass-highlight),
-        transparent
-    );
-    transition: left 0.6s ease;
+    bottom: 0;
+    width: 2px;
+    background: var(--glass-border);
+    transform: translateX(-50%);
 }
 
-.glass-btn:hover::before {
-    left: 100%;
-}
-
-.glass-btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.35);
-    box-shadow: var(--glass-shadow);
-}
-
-.btn-icon {
-    font-size: 2.2rem;
-    color: var(--white);
-    margin-bottom: 0.3rem;
-}
-
-.btn-text {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--white);
-}
-
-/* Pulsante Torna Indietro Glass */
-.back-btn {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(20px);
-    border-radius: 14px;
-    padding: 1rem 1.5rem;
-    color: var(--white);
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    border: none;
-    z-index: 1000;
-}
-
-.back-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateX(-5px);
-}
-
-/* Header delle Sezioni */
-.section-header {
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-.section-header h2 {
-    font-size: 3.2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-    color: var(--white);
-}
-
-/* CARD GLASS - Per tutto il contenuto */
-.glass-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border-radius: 20px;
-    padding: 2.5rem;
-    text-align: left;
+.timeline-item {
     position: relative;
+    margin-bottom: 3rem;
+    width: 50%;
+    padding: 0 2rem;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-date {
+    font-weight: 700;
+    color: var(--white);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.timeline-content {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
     transition: transform 0.3s ease;
 }
 
-.glass-card:hover {
+.timeline-content:hover {
     transform: translateY(-5px);
 }
 
-.inner-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-    margin-top: 1.5rem;
-}
-
-.glass-card h3 {
-    font-size: 1.7rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
+.timeline-content h3 {
     color: var(--white);
-}
-
-.glass-card h4 {
+    margin-bottom: 0.5rem;
     font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+}
+
+.timeline-content p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+}
+
+/* Quiz Styles */
+.quiz-score {
+    font-size: 1.2rem;
     color: var(--white);
+    margin-top: 1rem;
 }
 
-.glass-card p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 1rem;
+.quiz-container {
+    max-width: 700px;
+    width: 100%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(20px);
 }
 
-.glass-card ul {
-    list-style: none;
-    padding-left: 0;
+.quiz-progress {
+    margin-bottom: 2rem;
 }
 
-.glass-card li {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.glass-card li::before {
-    content: '•';
-    color: var(--white);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-}
-
-.glass-card strong {
-    color: var(--white);
-    font-weight: 600;
-}
-
-/* Citazioni */
-.quote-card {
-    text-align: center;
+.progress-bar {
+    width: 100%;
+    height: 6px;
     background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
 }
 
-blockquote {
-    font-size: 1.3rem;
-    font-style: italic;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    color: var(--white);
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue-light), #5ac8fa);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+    width: 0%;
 }
 
-cite {
-    font-size: 1rem;
+.progress-text {
+    font-size: 0.9rem;
     color: var(--gray);
-    font-style: normal;
 }
 
-/* Griglio per le card */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
-    width: 100%;
+.question-container {
+    margin-bottom: 2rem;
 }
 
-.paradox-card {
-    position: relative;
-    text-align: center;
-}
-
-.card-number {
-    font-size: 2.5rem;
-    font-weight: 800;
+.question-container h3 {
+    font-size: 1.4rem;
     color: var(--white);
-    opacity: 0.3;
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    line-height: 1;
+    line-height: 1.4;
 }
 
-/* Contenuto Testuale */
-.text-content {
-    max-width: 800px;
-    width: 100%;
+.options-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-/* Responsive Design */
+.quiz-option {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    color: var(--white);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.quiz-option:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(10px);
+}
+
+.quiz-option.correct {
+    background: rgba(76, 175, 80, 0.3);
+    border-color: #4caf50;
+}
+
+.quiz-option.incorrect {
+    background: rgba(244, 67, 54, 0.3);
+    border-color: #f44336;
+}
+
+.quiz-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.quiz-feedback {
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+.quiz-feedback.correct {
+    background: rgba(76, 175, 80, 0.2);
+    border: 1px solid #4caf50;
+    color: #4caf50;
+}
+
+.quiz-feedback.incorrect {
+    background: rgba(244, 67, 54, 0.2);
+    border: 1px solid #f44336;
+    color: #f44336;
+}
+
+.quiz-next-btn, .quiz-restart-btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    color: var(--white);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 auto;
+}
+
+.quiz-next-btn:hover, .quiz-restart-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Rimuovi le immagini fluttuanti */
+.floating-images {
+    display: none;
+}
+
+/* Responsive per timeline e quiz */
 @media (max-width: 768px) {
-    .main-title {
-        font-size: 3.5rem;
+    .timeline::before {
+        left: 30px;
     }
     
-    .subtitle {
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 70px;
+    }
+    
+    .timeline-date {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+        margin-left: -20px;
+    }
+    
+    .quiz-container {
+        padding: 1.5rem;
+    }
+    
+    .question-container h3 {
         font-size: 1.2rem;
+    }
+    
+    .quiz-option {
+        padding: 1rem 1.2rem;
+        font-size: 0.9rem;
     }
     
     .main-nav {
         grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .glass-btn {
-        padding: 1.5rem 1rem;
-    }
-    
-    .section-header h2 {
-        font-size: 2.5rem;
-    }
-    
-    .cards-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .content {
-        padding: 1rem;
-    }
-    
-    .back-btn {
-        top: 1rem;
-        left: 1rem;
-        padding: 0.8rem 1rem;
-    }
-    
-    .glass-card {
-        padding: 2rem 1.5rem;
-    }
-    
-    /* Immagini più piccole su mobile */
-    .floating-image {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .title-container:hover .img-1 {
-        transform: translate(-120px, -80px) scale(1) rotate(-8deg);
-    }
-    
-    .title-container:hover .img-2 {
-        transform: translate(120px, -80px) scale(1) rotate(8deg);
-    }
-}
-
-@media (max-width: 480px) {
-    .main-title {
-        font-size: 2.8rem;
-    }
-    
-    .section-header h2 {
-        font-size: 2rem;
-    }
-    
-    .btn-icon {
-        font-size: 1.8rem;
-    }
-    
-    .btn-text {
-        font-size: 0.9rem;
-    }
-    
-    .floating-image {
-        width: 80px;
-        height: 80px;
     }
 }
