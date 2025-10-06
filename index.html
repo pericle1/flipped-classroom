@@ -23,39 +23,32 @@
             <p class="subtitle">I paradossi che sfidarono la realtà</p>
             
             <nav class="main-nav">
-                <button class="glass-btn" data-target="vita">
+                <button class="glass-btn" onclick="showSection('vita')">
                     <div class="btn-icon">
                         <i class="fas fa-user"></i>
                     </div>
                     <span class="btn-text">Chi era</span>
                 </button>
                 
-                <button class="glass-btn" data-target="pensiero">
+                <button class="glass-btn" onclick="showSection('pensiero')">
                     <div class="btn-icon">
                         <i class="fas fa-brain"></i>
                     </div>
                     <span class="btn-text">Il Pensiero</span>
                 </button>
                 
-                <button class="glass-btn" data-target="paradossi">
+                <button class="glass-btn" onclick="showSection('paradossi')">
                     <div class="btn-icon">
                         <i class="fas fa-infinity"></i>
                     </div>
                     <span class="btn-text">I Paradossi</span>
                 </button>
                 
-                <button class="glass-btn" data-target="eredita">
+                <button class="glass-btn" onclick="showSection('eredita')">
                     <div class="btn-icon">
                         <i class="fas fa-monument"></i>
                     </div>
                     <span class="btn-text">L'Eredità</span>
-                </button>
-                
-                <button class="glass-btn" data-target="orale">
-                    <div class="btn-icon">
-                        <i class="fas fa-comment"></i>
-                    </div>
-                    <span class="btn-text">Spunti Orali</span>
                 </button>
             </nav>
         </div>
@@ -64,7 +57,7 @@
     <!-- Sezione Chi Era -->
     <section id="vita" class="section">
         <div class="content">
-            <button class="back-btn glass-btn">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
                 <i class="fas fa-arrow-left"></i>
                 <span>Torna alla Home</span>
             </button>
@@ -90,7 +83,7 @@
     <!-- Sezione Il Pensiero -->
     <section id="pensiero" class="section">
         <div class="content">
-            <button class="back-btn glass-btn">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
                 <i class="fas fa-arrow-left"></i>
                 <span>Torna alla Home</span>
             </button>
@@ -127,7 +120,7 @@
     <!-- Sezione I Paradossi -->
     <section id="paradossi" class="section">
         <div class="content">
-            <button class="back-btn glass-btn">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
                 <i class="fas fa-arrow-left"></i>
                 <span>Torna alla Home</span>
             </button>
@@ -161,7 +154,7 @@
     <!-- Sezione L'Eredità -->
     <section id="eredita" class="section">
         <div class="content">
-            <button class="back-btn glass-btn">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
                 <i class="fas fa-arrow-left"></i>
                 <span>Torna alla Home</span>
             </button>
@@ -192,32 +185,52 @@
         </div>
     </section>
 
-    <!-- Sezione Spunti Orali -->
-    <section id="orale" class="section">
-        <div class="content">
-            <button class="back-btn glass-btn">
-                <i class="fas fa-arrow-left"></i>
-                <span>Torna alla Home</span>
-            </button>
+    <script>
+        // Funzione semplice per mostrare le sezioni
+        function showSection(sectionId) {
+            console.log('Mostrando sezione:', sectionId);
             
-            <div class="section-header">
-                <h2>🗣️ Spunti Orali</h2>
-            </div>
+            // Nascondi tutte le sezioni
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
             
-            <div class="text-content">
-                <div class="glass-card highlight-card">
-                    <p><strong>Dottrine confutate da Zenone:</strong><br> Principalmente il pluralismo (l'idea che esistano molte cose) e la validità del movimento.</p>
-                    
-                    <p><strong>Significato del paradosso del treno:</strong><br> La simultaneità di due eventi dipende dal punto di vista dell'osservatore. Non esiste un tempo universale e oggettivo.</p>
-                    
-                    <p><strong>Riflessione critica:</strong><br> Il paradosso del treno, come quelli di Zenone, ci costringe a mettere in discussione la nostra percezione della realtà. Dimostra che due persone possono vivere lo stesso evento in modo diverso, cambiando la nostra concezione del tempo.</p>
-                    
-                    <p><strong>Esperienza personale:</strong><br> L'illusione del movimento relativo, come quando sei su un treno fermo e ti sembra che sia il treno accanto a muoversi, è un esempio perfetto di come la percezione dipenda dal sistema di riferimento.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            // Mostra la sezione richiesta
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+        }
 
-    <script src="script.js"></script>
+        // Background Slider per Hero
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            function nextSlide() {
+                if (slides.length > 0) {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }
+            }
+            
+            // Cambia slide ogni 5 secondi (solo nella home)
+            setInterval(() => {
+                if (document.getElementById('home').classList.contains('active')) {
+                    nextSlide();
+                }
+            }, 5000);
+
+            // Gestione tasto ESC per tornare alla home
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    showSection('home');
+                }
+            });
+            
+            console.log('Sito Zenone - Caricamento completato');
+        });
+    </script>
 </body>
 </html>
