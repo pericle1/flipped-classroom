@@ -11,6 +11,7 @@
 <body>
     <!-- Home Section -->
     <section id="home" class="section active">
+        <div id="particles-js"></div>
         <div class="background-slider">
             <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1555099962-4199c345e546?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"></div>
             <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2067&q=80')"></div>
@@ -23,10 +24,8 @@
             <div class="title-container">
                 <h1 class="main-title" id="zenone-title">ZENONE</h1>
                 <div class="floating-images">
-                    <div class="floating-image img-1" style="background-image: url('https://i.imgur.com/cPFFnPH.png')"></div>
+                    <div class="floating-image img-1" style="background-image: url('https://cdn-icons-png.flaticon.com/512/4576/4576683.png')"></div>
                     <div class="floating-image img-2" style="background-image: url('https://images.unsplash.com/photo-1555099962-4199c345e546?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80')"></div>
-                    <div class="floating-image img-3" style="background-image: url('https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80')"></div>
-                    <div class="floating-image img-4" style="background-image: url('https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80')"></div>
                 </div>
             </div>
             
@@ -59,6 +58,20 @@
                         <i class="fas fa-monument"></i>
                     </div>
                     <span class="btn-text">L'Eredità</span>
+                </button>
+
+                <button class="glass-btn" onclick="showSection('timeline')">
+                    <div class="btn-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <span class="btn-text">Timeline</span>
+                </button>
+
+                <button class="glass-btn" onclick="showSection('quiz')">
+                    <div class="btn-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <span class="btn-text">Quiz</span>
                 </button>
             </nav>
         </div>
@@ -195,6 +208,118 @@
         </div>
     </section>
 
+    <!-- Sezione Timeline -->
+    <section id="timeline" class="section">
+        <div class="content">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
+                <i class="fas fa-arrow-left"></i>
+                <span>Torna alla Home</span>
+            </button>
+            
+            <div class="section-header">
+                <h2>📜 Timeline Storica</h2>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">490-430 a.C.</div>
+                        <div class="timeline-content">
+                            <h3>Vita di Zenone</h3>
+                            <p>Zenone di Elea sviluppa i suoi paradossi per difendere le teorie di Parmenide</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">IV sec. a.C.</div>
+                        <div class="timeline-content">
+                            <h3>Aristotele</h3>
+                            <p>Analizza e critica i paradossi di Zenone nella sua "Fisica"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">XVII sec.</div>
+                        <div class="timeline-content">
+                            <h3>Rivoluzione Scientifica</h3>
+                            <p>Newton e Leibniz sviluppano il calcolo infinitesimale, fornendo strumenti matematici per risolvere i paradossi</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">XIX sec.</div>
+                        <div class="timeline-content">
+                            <h3>Matematica Moderna</h3>
+                            <p>Weierstrass e Cantor formalizzano i concetti di limite e infinito</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">1905</div>
+                        <div class="timeline-content">
+                            <h3>Einstein</h3>
+                            <p>La teoria della relatività speciale rivoluziona il concetto di tempo e spazio</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Oggi</div>
+                        <div class="timeline-content">
+                            <h3>Attualità</h3>
+                            <p>I paradossi di Zenone continuano a influenzare filosofia, matematica e fisica quantistica</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Quiz -->
+    <section id="quiz" class="section">
+        <div class="content">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
+                <i class="fas fa-arrow-left"></i>
+                <span>Torna alla Home</span>
+            </button>
+            
+            <div class="section-header">
+                <h2>🎯 Quiz sui Paradossi</h2>
+                <p class="quiz-score">Punteggio: <span id="score">0</span>/5</p>
+            </div>
+            
+            <div class="quiz-container">
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span class="progress-text">Domanda <span id="current-question">1</span>/5</span>
+                </div>
+                
+                <div class="quiz-content">
+                    <div class="question-container">
+                        <h3 id="question-text">Quale di questi NON è un paradosso di Zenone?</h3>
+                    </div>
+                    
+                    <div class="options-container" id="options-container">
+                        <!-- Le opzioni verranno inserite qui dinamicamente -->
+                    </div>
+                    
+                    <div class="quiz-feedback" id="feedback"></div>
+                    
+                    <button class="quiz-next-btn" id="next-btn" onclick="nextQuestion()" style="display: none;">
+                        Prossima Domanda <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <button class="quiz-restart-btn" id="restart-btn" onclick="restartQuiz()" style="display: none;">
+                        <i class="fas fa-redo"></i> Rifai il Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script per Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         // Funzione semplice per mostrare le sezioni
         function showSection(sectionId) {
@@ -238,9 +363,203 @@
                     showSection('home');
                 }
             });
+
+            // Inizializza Particles.js
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 40, density: { enable: true, value_area: 800 } },
+                    color: { value: '#ffffff' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.3, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: { 
+                        enable: true, 
+                        distance: 150, 
+                        color: '#ffffff', 
+                        opacity: 0.2, 
+                        width: 1 
+                    },
+                    move: { 
+                        enable: true, 
+                        speed: 1, 
+                        direction: 'none', 
+                        random: false, 
+                        straight: false, 
+                        out_mode: 'out', 
+                        bounce: false 
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: true, mode: 'repulse' },
+                        onclick: { enable: true, mode: 'push' }
+                    }
+                }
+            });
+            
+            // Inizializza il quiz
+            initQuiz();
             
             console.log('Sito Zenone - Caricamento completato');
         });
+
+        // QUIZ LOGIC
+        let currentQuestion = 0;
+        let score = 0;
+        let questions = [];
+
+        function initQuiz() {
+            questions = [
+                {
+                    question: "Quale di questi NON è un paradosso di Zenone?",
+                    options: [
+                        "La Dicotomia",
+                        "Achille e la Tartaruga", 
+                        "Il Dilemma del Prigioniero",
+                        "La Freccia Immobile"
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Qual era lo scopo principale dei paradossi di Zenone?",
+                    options: [
+                        "Dimostrare l'esistenza di Dio",
+                        "Confutare le teorie di Parmenide",
+                        "Difendere la teoria di Parmenide sull'Uno",
+                        "Promuovere il movimento e il cambiamento"
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Secondo il paradosso di Achille e la Tartaruga:",
+                    options: [
+                        "Achille vince sempre la corsa",
+                        "La tartaruga vince grazie alla sua perseveranza",
+                        "Achille non raggiunge mai la tartaruga",
+                        "La corsa termina in pareggio"
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Come viene risolto matematicamente il paradosso della Dicotomia?",
+                    options: [
+                        "Con la teoria dei numeri primi",
+                        "Con le serie convergenti",
+                        "Con il calcolo delle probabilità",
+                        "Con la geometria non euclidea"
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "Quale filosofo considerava Zenone l'inventore della dialettica?",
+                    options: [
+                        "Platone",
+                        "Socrate", 
+                        "Aristotele",
+                        "Epicuro"
+                    ],
+                    correct: 2
+                }
+            ];
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            const question = questions[currentQuestion];
+            document.getElementById('question-text').textContent = question.question;
+            document.getElementById('current-question').textContent = currentQuestion + 1;
+            
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'quiz-option';
+                button.textContent = option;
+                button.onclick = () => checkAnswer(index);
+                optionsContainer.appendChild(button);
+            });
+            
+            // Aggiorna la barra di progresso
+            const progress = ((currentQuestion) / questions.length) * 100;
+            document.getElementById('progress-fill').style.width = progress + '%';
+            
+            // Nascondi i pulsanti di navigazione
+            document.getElementById('next-btn').style.display = 'none';
+            document.getElementById('restart-btn').style.display = 'none';
+            document.getElementById('feedback').style.display = 'none';
+        }
+
+        function checkAnswer(selectedIndex) {
+            const question = questions[currentQuestion];
+            const options = document.querySelectorAll('.quiz-option');
+            const feedback = document.getElementById('feedback');
+            
+            // Disabilita tutti i pulsanti
+            options.forEach(option => {
+                option.disabled = true;
+            });
+            
+            // Mostra le risposte corrette/errate
+            options.forEach((option, index) => {
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === selectedIndex) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            // Controlla se la risposta è corretta
+            if (selectedIndex === question.correct) {
+                score++;
+                feedback.textContent = '✅ Corretto!';
+                feedback.className = 'quiz-feedback correct';
+            } else {
+                feedback.textContent = '❌ Sbagliato! La risposta corretta è: ' + question.options[question.correct];
+                feedback.className = 'quiz-feedback incorrect';
+            }
+            
+            feedback.style.display = 'block';
+            document.getElementById('score').textContent = score;
+            
+            // Mostra il pulsante successivo o di ricominciamento
+            if (currentQuestion < questions.length - 1) {
+                document.getElementById('next-btn').style.display = 'flex';
+            } else {
+                document.getElementById('restart-btn').style.display = 'flex';
+                showFinalScore();
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            displayQuestion();
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('score').textContent = '0';
+            initQuiz();
+        }
+
+        function showFinalScore() {
+            const feedback = document.getElementById('feedback');
+            let message = '';
+            
+            if (score === questions.length) {
+                message = '🎉 Perfetto! Sei un esperto di Zenone!';
+            } else if (score >= questions.length * 0.7) {
+                message = '👍 Ottimo! Conosci bene i paradossi di Zenone!';
+            } else if (score >= questions.length * 0.5) {
+                message = '😊 Buono! Hai una buona conoscenza di base.';
+            } else {
+                message = '📚 Studia ancora un po\' i paradossi di Zenone!';
+            }
+            
+            feedback.textContent = `Quiz completato! ${message} Punteggio finale: ${score}/${questions.length}`;
+        }
     </script>
 </body>
 </html>
