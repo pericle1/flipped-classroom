@@ -4,569 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zenone di Elea | Filosofia Presocratica</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        body {
-            background: #f5f7fa;
-            color: #333;
-            overflow-x: hidden;
-        }
-        
-        .section {
-            display: none;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-        
-        .section.active {
-            display: block;
-        }
-        
-        /* Stili per la sezione Home */
-        #home {
-            position: relative;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .background-slider {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-        
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-        }
-        
-        .slide.active {
-            opacity: 0.3;
-        }
-        
-        .glass-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            z-index: 2;
-        }
-        
-        .content {
-            position: relative;
-            z-index: 3;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .title-container {
-            margin-bottom: 30px;
-            position: relative;
-        }
-        
-        .main-title {
-            font-size: 5rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .main-title:hover {
-            transform: scale(1.05);
-            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
-        }
-        
-        .subtitle {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 50px;
-            opacity: 0.9;
-        }
-        
-        .main-nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .glass-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 15px 25px;
-            color: white;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            min-width: 160px;
-            justify-content: center;
-        }
-        
-        .glass-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-icon {
-            font-size: 1.2rem;
-        }
-        
-        /* Stili per le altre sezioni */
-        #vita, #pensiero, #paradossi, #eredita, #quiz {
-            background: #f5f7fa;
-            color: #333;
-        }
-        
-        .back-btn {
-            background: rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            color: #333;
-            margin-bottom: 30px;
-        }
-        
-        .back-btn:hover {
-            background: rgba(0, 0, 0, 0.1);
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a2a6c;
-        }
-        
-        .text-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .glass-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .glass-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #1a2a6c;
-        }
-        
-        .glass-card p, .glass-card ul {
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .glass-card ul {
-            padding-left: 20px;
-        }
-        
-        .glass-card li {
-            margin-bottom: 8px;
-        }
-        
-        .quote-card {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
-            color: white;
-        }
-        
-        .quote-card blockquote {
-            font-style: italic;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
-        
-        .quote-card cite {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .paradox-card {
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-        
-        .paradox-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .card-number {
-            position: absolute;
-            top: -15px;
-            right: -15px;
-            background: #1a2a6c;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        /* Stili per il Quiz */
-        .quiz-container {
-            background-color: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 800px;
-            padding: 30px;
-            margin: 0 auto;
-        }
-        
-        .quiz-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .quiz-title {
-            color: #1a2a6c;
-            margin-bottom: 5px;
-            font-size: 28px;
-            font-weight: 700;
-        }
-        
-        .score {
-            color: #7f8c8d;
-            font-weight: 500;
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-        
-        /* Timeline migliorata */
-        .progress-container {
-            margin: 30px 0;
-            padding: 0 10px;
-        }
-        
-        .timeline {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            margin-bottom: 15px;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background-color: #ecf0f1;
-            transform: translateY(-50%);
-            z-index: 1;
-            border-radius: 3px;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline-progress {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #3498db, #2ecc71);
-            transform: translateY(-50%);
-            z-index: 2;
-            border-radius: 3px;
-            transition: width 0.5s ease;
-        }
-        
-        .timeline-step {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: white;
-            border: 3px solid #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #999;
-            z-index: 3;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline-step.active {
-            border-color: #3498db;
-            background-color: #3498db;
-            color: white;
-            transform: scale(1.1);
-            box-shadow: 0 0 0 6px rgba(52, 152, 219, 0.2);
-        }
-        
-        .timeline-step.completed {
-            border-color: #2ecc71;
-            background-color: #2ecc71;
-            color: white;
-        }
-        
-        .progress-info {
-            display: flex;
-            justify-content: space-between;
-            color: #7f8c8d;
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-        
-        .question-container {
-            margin-bottom: 30px;
-            padding: 0 10px;
-        }
-        
-        .question-text {
-            font-size: 22px;
-            color: #2c3e50;
-            margin-bottom: 25px;
-            line-height: 1.4;
-            font-weight: 600;
-        }
-        
-        /* Pulsanti delle opzioni migliorati */
-        .options-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-        }
-        
-        .option-button {
-            background-color: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 18px 20px;
-            font-size: 17px;
-            color: #2c3e50;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .option-button:hover {
-            border-color: #3498db;
-            background-color: #f8fafc;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-        
-        .option-button.selected {
-            border-color: #3498db;
-            background-color: rgba(52, 152, 219, 0.05);
-        }
-        
-        .option-button.correct {
-            border-color: #2ecc71;
-            background-color: rgba(46, 204, 113, 0.1);
-        }
-        
-        .option-button.incorrect {
-            border-color: #e74c3c;
-            background-color: rgba(231, 76, 60, 0.1);
-        }
-        
-        .option-letter {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 36px;
-            height: 36px;
-            background-color: #ecf0f1;
-            border-radius: 50%;
-            margin-right: 18px;
-            font-weight: bold;
-            color: #7f8c8d;
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .option-button:hover .option-letter {
-            background-color: #3498db;
-            color: white;
-        }
-        
-        .option-button.selected .option-letter {
-            background-color: #3498db;
-            color: white;
-        }
-        
-        .option-button.correct .option-letter {
-            background-color: #2ecc71;
-            color: white;
-        }
-        
-        .option-button.incorrect .option-letter {
-            background-color: #e74c3c;
-            color: white;
-        }
-        
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-            padding: 0 10px;
-        }
-        
-        .nav-button {
-            padding: 14px 30px;
-            border-radius: 10px;
-            font-size: 17px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-        }
-        
-        .prev-button {
-            background-color: #ecf0f1;
-            color: #7f8c8d;
-        }
-        
-        .prev-button:hover {
-            background-color: #d5dbdb;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .next-button {
-            background: linear-gradient(135deg, #3498db, #2ecc71);
-            color: white;
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
-        }
-        
-        .next-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
-        }
-        
-        .quiz-footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #7f8c8d;
-            font-size: 14px;
-            padding: 0 10px;
-        }
-        
-        .feedback {
-            text-align: center;
-            margin: 20px 0;
-            padding: 15px;
-            border-radius: 10px;
-            font-weight: 600;
-        }
-        
-        .feedback.correct {
-            background-color: rgba(46, 204, 113, 0.1);
-            color: #27ae60;
-            border: 1px solid #2ecc71;
-        }
-        
-        .feedback.incorrect {
-            background-color: rgba(231, 76, 60, 0.1);
-            color: #c0392b;
-            border: 1px solid #e74c3c;
-        }
-        
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 3rem;
-            }
-            
-            .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .main-nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .glass-btn {
-                width: 100%;
-                max-width: 250px;
-            }
-            
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .quiz-container {
-                padding: 20px;
-            }
-            
-            .question-text {
-                font-size: 19px;
-            }
-            
-            .option-button {
-                padding: 15px;
-                font-size: 16px;
-            }
-            
-            .nav-button {
-                padding: 12px 20px;
-                font-size: 16px;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Home Section -->
@@ -579,6 +19,7 @@
         <div class="glass-overlay"></div>
         
         <div class="content">
+            <!-- Titolo senza effetto hover -->
             <div class="title-container">
                 <h1 class="main-title">ZENONE</h1>
             </div>
@@ -586,37 +27,44 @@
             <p class="subtitle">I paradossi che sfidarono la realtà</p>
             
             <nav class="main-nav">
-                <button class="glass-btn" data-target="vita">
+                <button class="glass-btn" onclick="showSection('vita')">
                     <div class="btn-icon">
                         <i class="fas fa-user"></i>
                     </div>
                     <span class="btn-text">Chi era</span>
                 </button>
                 
-                <button class="glass-btn" data-target="pensiero">
+                <button class="glass-btn" onclick="showSection('pensiero')">
                     <div class="btn-icon">
                         <i class="fas fa-brain"></i>
                     </div>
                     <span class="btn-text">Il Pensiero</span>
                 </button>
                 
-                <button class="glass-btn" data-target="paradossi">
+                <button class="glass-btn" onclick="showSection('paradossi')">
                     <div class="btn-icon">
                         <i class="fas fa-infinity"></i>
                     </div>
                     <span class="btn-text">I Paradossi</span>
                 </button>
                 
-                <button class="glass-btn" data-target="eredita">
+                <button class="glass-btn" onclick="showSection('eredita')">
                     <div class="btn-icon">
                         <i class="fas fa-monument"></i>
                     </div>
                     <span class="btn-text">L'Eredità</span>
                 </button>
-                
-                <button class="glass-btn" data-target="quiz">
+
+                <button class="glass-btn" onclick="showSection('timeline')">
                     <div class="btn-icon">
-                        <i class="fas fa-question-circle"></i>
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <span class="btn-text">Timeline</span>
+                </button>
+
+                <button class="glass-btn" onclick="showSection('quiz')">
+                    <div class="btn-icon">
+                        <i class="fas fa-puzzle-piece"></i>
                     </div>
                     <span class="btn-text">Quiz</span>
                 </button>
@@ -627,7 +75,7 @@
     <!-- Sezione Chi Era -->
     <section id="vita" class="section">
         <div class="content">
-            <button class="back-btn glass-btn" data-target="home">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
                 <i class="fas fa-arrow-left"></i>
                 <span>Torna alla Home</span>
             </button>
@@ -641,11 +89,9 @@
                     <h3>Il Filosofo di Elea</h3>
                     <ul>
                         <li>Nato a <strong>Elea</strong> (Magna Grecia) nel V sec. a.C.</li>
-                        <li>Figlio di Telentagora e secondo alcune fonti <strong>adottato da Parmenide</strong>.</li>
                         <li>Discepolo e difensore di <strong>Parmenide</strong>, che sosteneva il monismo: "tutto è Uno".</li>
                         <li>Considerato da Aristotele l'inventore della <strong>dialettica</strong>, cioè l'arte di discutere e confutare con argomenti stringenti.</li>
                         <li>Usava la <strong>dimostrazione per assurdo</strong>: assumeva la tesi dell'avversario e ne mostrava le contraddizioni interne.</li>
-                        <li>Secondo Platone, Zenone lesse i suoi scritti ad Atene a Socrate e altri, definendo il suo lavoro come una <strong>difesa della dottrina di Parmenide</strong>.</li>
                     </ul>
                 </div>
             </div>
@@ -655,7 +101,7 @@
     <!-- Sezione Il Pensiero -->
     <section id="pensiero" class="section">
         <div class="content">
-            <button class="back-btn glass-btn" data-target="home">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
                 <i class="fas fa-arrow-left"></i>
                 <span>Torna alla Home</span>
             </button>
@@ -667,10 +113,316 @@
             <div class="text-content">
                 <div class="glass-card">
                     <h3>Obiettivo del suo Filosofare</h3>
-                    <p>Lo scopo di Zenone era difendere la tesi parmenidea contro chi sosteneva la molteplicità e il movimento, mostrando che accettare la pluralità o il moto porta a inevitabili contraddizioni logiche. Secondo Platone, Zenone stesso definì il suo scritto come una <strong>difesa della dottrina di Parmenide</strong> "contro coloro che tentano di renderla ridicola".</p>
+                    <p>Lo scopo di Zenone era difendere la tesi parmenidea contro chi sosteneva la molteplicità e il movimento, mostrando che accettare la pluralità o il moto porta a inevitabili contraddizioni logiche.</p>
                 </div>
                 
                 <div class="glass-card quote-card">
                     <blockquote>
                         «Quanto si muove, né nel luogo in cui è viene a muoversi, né in quello in cui non è»
-                        <cite>– 
+                        <cite>– Diogene Laerzio, IX, 72</cite>
+                    </blockquote>
+                </div>
+                
+                <div class="glass-card">
+                    <h3>Zenone e la Dialettica</h3>
+                    <p>Aristotele attribuisce a Zenone l'invenzione della dialettica, l'arte di discutere per difendere una tesi e confutare quella avversaria. Zenone anticipa il metodo socratico e la logica aristotelica usando:</p>
+                    <ul>
+                        <li>Principio di non contraddizione</li>
+                        <li>Riduzione all'impossibile (dimostrazione per assurdo)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione I Paradossi -->
+    <section id="paradossi" class="section">
+        <div class="content">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
+                <i class="fas fa-arrow-left"></i>
+                <span>Torna alla Home</span>
+            </button>
+            
+            <div class="section-header">
+                <h2>🔎 I Paradossi</h2>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="glass-card paradox-card">
+                    <div class="card-number">01</div>
+                    <h3>La Dicotomia</h3>
+                    <p>Un corpo che deve andare da A a B deve prima passare per il punto medio C, poi per il punto medio tra A e C, e così via all'infinito.<br><strong>Conclusione</strong>: il movimento non può nemmeno iniziare, perché ci sono infiniti punti da attraversare.</p>
+                </div>
+                
+                <div class="glass-card paradox-card">
+                    <div class="card-number">02</div>
+                    <h3>Achille e la Tartaruga</h3>
+                    <p>Achille, pur essendo il più veloce, non raggiungerà mai la tartaruga se le concede un vantaggio. Ogli volta che Achille raggiunge il punto dove si trovava la tartaruga, questa si sarà spostata un po' più in avanti, costringendolo a coprire infiniti intervalli.</p>
+                </div>
+                
+                <div class="glass-card paradox-card">
+                    <div class="card-number">03</div>
+                    <h3>La Freccia Immobile</h3>
+                    <p>Una freccia in volo sembra muoversi, ma in ogni singolo istante occupa solo uno spazio pari alla sua lunghezza. Se in ogni istante è ferma, allora è sempre immobile e il suo movimento è un'illusione.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione L'Eredità -->
+    <section id="eredita" class="section">
+        <div class="content">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
+                <i class="fas fa-arrow-left"></i>
+                <span>Torna alla Home</span>
+            </button>
+            
+            <div class="section-header">
+                <h2>🏛️ L'Eredità</h2>
+            </div>
+            
+            <div class="text-content">
+                <div class="glass-card">
+                    <h3>Le Risposte dei Filosofi e della Scienza</h3>
+                    <ul>
+                        <li><strong>Aristotele</strong>: i paradossi si basano sull'idea che il tempo sia fatto di istanti separati. In realtà, il tempo è un continuo e il movimento è possibile.</li>
+                        <li><strong>Kant</strong>: i paradossi mostrano i limiti della ragione umana quando cerca di pensare l'infinito.</li>
+                        <li><strong>Bergson</strong>: Zenone confonde il tempo matematico (astratto, divisibile) con la durata reale (continua e indivisibile).</li>
+                        <li><strong>Matematica Moderna</strong>: grazie al concetto di <strong>serie convergente</strong>, si dimostra che la somma di infiniti intervalli può dare un risultato finito. Per questo, Achille raggiunge e supera la tartaruga.</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card">
+                    <h3>Dal Paradosso Antico a Quello Moderno</h3>
+                    <div class="glass-card inner-card">
+                        <h4>Il Paradosso del Treno (Einstein)</h4>
+                        <p>Due osservatori (uno sul treno in corsa, uno sulla banchina) percepiscono diversamente la simultaneità di due fulmini che cadono alle estremità del treno. Questo dimostra che il tempo non è assoluto, ma <strong>relativo</strong> al sistema di riferimento dell'osservatore.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuova Sezione: Timeline -->
+    <section id="timeline" class="section">
+        <div class="content">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
+                <i class="fas fa-arrow-left"></i>
+                <span>Torna alla Home</span>
+            </button>
+            
+            <div class="section-header">
+                <h2>📜 Timeline Storica</h2>
+                <p>L'evoluzione del pensiero dai paradossi di Zenone alla fisica moderna</p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">490-430 a.C.</div>
+                        <div class="timeline-content">
+                            <h3>Vita di Zenone</h3>
+                            <p>Zenone di Elea sviluppa i suoi paradossi per difendere le teorie di Parmenide. Secondo Platone, lo stesso Zenone definì il suo scritto come una "difesa della dottrina di Parmenide" [citation:1].</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">IV sec. a.C.</div>
+                        <div class="timeline-content">
+                            <h3>Aristotele e la Dialettica</h3>
+                            <p>Aristotele analizza e critica i paradossi di Zenone nella sua "Fisica" e lo considera il <strong>fondatore della dialettica</strong> come tecnica di confutazione attraverso la discussione [citation:1].</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">XVII sec.</div>
+                        <div class="timeline-content">
+                            <h3>Rivoluzione Scientifica</h3>
+                            <p>Newton e Leibniz sviluppano il <strong>calcolo infinitesimale</strong>, fornendo finalmente gli strumenti matematici per risolvere formalmente i paradossi di Zenone.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">XIX sec.</div>
+                        <div class="timeline-content">
+                            <h3>Matematica Moderna</h3>
+                            <p>Weierstrass e Cantor formalizzano i concetti di <strong>limite e infinito</strong>, fornendo le basi per comprendere le serie convergenti che risolvono i paradossi.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">1905</div>
+                        <div class="timeline-content">
+                            <h3>Einstein e la Relatività</h3>
+                            <p>La teoria della relatività speciale rivoluziona il concetto di tempo e spazio, dimostrando che la simultaneità è <strong>relativa</strong> al sistema di riferimento.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Oggi</div>
+                        <div class="timeline-content">
+                            <h3>Attualità dei Paradossi</h3>
+                            <p>I paradossi di Zenone continuano a influenzare filosofia, matematica e <strong>fisica quantistica</strong>, dimostrando la loro profonda rilevanza nel pensiero contemporaneo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuova Sezione: Quiz Interattivo -->
+    <section id="quiz" class="section">
+        <div class="content">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
+                <i class="fas fa-arrow-left"></i>
+                <span>Torna alla Home</span>
+            </button>
+            
+            <div class="section-header">
+                <h2>🎯 Quiz sui Paradossi</h2>
+                <p class="quiz-score">Punteggio: <span id="score">0</span>/5</p>
+            </div>
+            
+            <div class="quiz-container">
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span class="progress-text">Domanda <span id="current-question">1</span>/5</span>
+                </div>
+                
+                <div class="quiz-content">
+                    <div class="question-container">
+                        <h3 id="question-text">Quale di questi NON è un paradosso di Zenone?</h3>
+                    </div>
+                    
+                    <div class="options-container" id="options-container">
+                        <!-- Le opzioni verranno inserite qui dinamicamente -->
+                    </div>
+                    
+                    <div class="quiz-feedback" id="feedback"></div>
+                    
+                    <button class="quiz-next-btn" id="next-btn" onclick="nextQuestion()" style="display: none;">
+                        Prossima Domanda <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <button class="quiz-restart-btn" id="restart-btn" onclick="restartQuiz()" style="display: none;">
+                        <i class="fas fa-redo"></i> Rifai il Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Funzione semplice per mostrare le sezioni
+        function showSection(sectionId) {
+            console.log('Mostrando sezione:', sectionId);
+            
+            // Nascondi tutte le sezioni
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Mostra la sezione richiesta
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+        }
+
+        // Background Slider per Hero
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            function nextSlide() {
+                if (slides.length > 0) {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }
+            }
+            
+            // Cambia slide ogni 5 secondi (solo nella home)
+            setInterval(() => {
+                if (document.getElementById('home').classList.contains('active')) {
+                    nextSlide();
+                }
+            }, 5000);
+
+            // Gestione tasto ESC per tornare alla home
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    showSection('home');
+                }
+            });
+            
+            // Inizializza il quiz
+            initQuiz();
+            
+            console.log('Sito Zenone - Caricamento completato');
+        });
+
+        // QUIZ LOGIC
+        let currentQuestion = 0;
+        let score = 0;
+        let questions = [];
+
+        function initQuiz() {
+            questions = [
+                {
+                    question: "Quale di questi NON è un paradosso di Zenone?",
+                    options: [
+                        "La Dicotomia",
+                        "Achille e la Tartaruga", 
+                        "Il Dilemma del Prigioniero",
+                        "La Freccia Immobile"
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Qual era lo scopo principale dei paradossi di Zenone?",
+                    options: [
+                        "Dimostrare l'esistenza di Dio",
+                        "Confutare le teorie di Parmenide",
+                        "Difendere la teoria di Parmenide sull'Uno",
+                        "Promuovere il movimento e il cambiamento"
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Secondo il paradosso di Achille e la Tartaruga:",
+                    options: [
+                        "Achille vince sempre la corsa",
+                        "La tartaruga vince grazie alla sua perseveranza",
+                        "Achille non raggiunge mai la tartaruga",
+                        "La corsa termina in pareggio"
+                    ],
+                    correct: 2
+                },
+                {
+                    question: "Come viene risolto matematicamente il paradosso della Dicotomia?",
+                    options: [
+                        "Con la teoria dei numeri primi",
+                        "Con le serie convergenti",
+                        "Con il calcolo delle probabilità",
+                        "Con la geometria non euclidea"
+                    ],
+                    correct: 1
+                },
+                {
+                    question: "Quale filosofo considerava Zenone l'inventore della dialettica?",
+                    options: [
+                        "Platone",
+                        "Socrate", 
+                        "Aristotele",
+                        "Epicuro"
+                    ],
+                    correct: 2
+                }
+            ];
+            displayQuestion();
+        }
+
+        fun
