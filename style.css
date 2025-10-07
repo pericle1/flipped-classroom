@@ -1,441 +1,6 @@
-/* Reset e Variabili Globali - Stile Glass */
-:root {
-    --black: #000000;
-    --white: #ffffff;
-    --gray: #8e8e93;
-    --blue-light: #64d2ff;
-    --glass-bg: rgba(255, 255, 255, 0.15);
-    --glass-border: rgba(255, 255, 255, 0.25);
-    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    --glass-highlight: rgba(255, 255, 255, 0.1);
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}
+/* Aggiungi queste regole al CSS esistente */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    height: 100%;
-    font-family: var(--font-primary);
-    background-color: var(--black);
-    color: var(--white);
-    overflow: hidden;
-}
-
-/* Sezioni */
-.section {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    overflow-y: auto;
-    z-index: 1;
-}
-
-.section.active {
-    opacity: 1;
-    visibility: visible;
-    z-index: 2;
-}
-
-/* Background Slider per Hero */
-.background-slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-}
-
-.slide.active {
-    opacity: 1;
-}
-
-.glass-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.7) 0%,
-        rgba(0, 0, 0, 0.4) 50%,
-        rgba(0, 0, 0, 0.7) 100%
-    );
-    backdrop-filter: blur(60px);
-    -webkit-backdrop-filter: blur(60px);
-    z-index: -1;
-}
-
-/* Contenuto Centrale */
-.content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/* Hero Section - contenuto centrato */
-#home .content {
-    justify-content: center;
-}
-
-/* Altre sezioni - contenuto inizia dall'alto */
-.section:not(#home) .content {
-    justify-content: flex-start;
-    padding-top: 6rem;
-}
-
-/* TITOLO CON EFFETTO HOVER */
-.title-container {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 0.5rem;
-}
-
-.main-title {
-    font-size: 5.5rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: var(--white);
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 10;
-}
-
-.title-container:hover .main-title {
-    transform: scale(1.05);
-    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-}
-
-/* IMMAGINI FLUTTUANTI */
-.floating-images {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.floating-image {
-    position: absolute;
-    width: 140px;
-    height: 140px;
-    border-radius: 20px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0;
-    transform: scale(0.3);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    z-index: 5;
-}
-
-/* Solo 2 immagini in alto ai lati */
-.title-container:hover .img-1 {
-    opacity: 1;
-    transform: translate(-200px, -50px) scale(1) rotate(-5deg);
-}
-
-.title-container:hover .img-2 {
-    opacity: 1;
-    transform: translate(200px, -50px) scale(1) rotate(5deg);
-}
-
-/* Posizionamento iniziale delle immagini */
-.img-1 {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.3);
-}
-
-.img-2 {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.3);
-}
-
-.subtitle {
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--gray);
-    margin-bottom: 4rem;
-    letter-spacing: 0.02em;
-    position: relative;
-    z-index: 10;
-}
-
-/* BOTTONI GLASS - Stile come nell'immagine */
-.main-nav {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-    max-width: 500px;
-    width: 100%;
-    position: relative;
-    z-index: 10;
-}
-
-.glass-btn {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 18px;
-    padding: 1.8rem 1.2rem;
-    color: var(--white);
-    font-size: 1.1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.glass-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--glass-highlight),
-        transparent
-    );
-    transition: left 0.6s ease;
-}
-
-.glass-btn:hover::before {
-    left: 100%;
-}
-
-.glass-btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.35);
-    box-shadow: var(--glass-shadow);
-}
-
-.btn-icon {
-    font-size: 2.2rem;
-    color: var(--white);
-    margin-bottom: 0.3rem;
-}
-
-.btn-text {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--white);
-}
-
-/* Pulsante Torna Indietro Glass */
-.back-btn {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(20px);
-    border-radius: 14px;
-    padding: 1rem 1.5rem;
-    color: var(--white);
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    border: none;
-    z-index: 1000;
-}
-
-.back-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateX(-5px);
-}
-
-/* Header delle Sezioni */
-.section-header {
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-.section-header h2 {
-    font-size: 3.2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-    color: var(--white);
-}
-
-/* CARD GLASS - Per tutto il contenuto */
-.glass-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border-radius: 20px;
-    padding: 2.5rem;
-    text-align: left;
-    position: relative;
-    transition: transform 0.3s ease;
-}
-
-.glass-card:hover {
-    transform: translateY(-5px);
-}
-
-.inner-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-    margin-top: 1.5rem;
-}
-
-.glass-card h3 {
-    font-size: 1.7rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: var(--white);
-}
-
-.glass-card h4 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--white);
-}
-
-.glass-card p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 1rem;
-}
-
-.glass-card ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.glass-card li {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.glass-card li::before {
-    content: '•';
-    color: var(--white);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-}
-
-.glass-card strong {
-    color: var(--white);
-    font-weight: 600;
-}
-
-/* Citazioni */
-.quote-card {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-blockquote {
-    font-size: 1.3rem;
-    font-style: italic;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    color: var(--white);
-}
-
-cite {
-    font-size: 1rem;
-    color: var(--gray);
-    font-style: normal;
-}
-
-/* Griglio per le card */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
-    width: 100%;
-}
-
-.paradox-card {
-    position: relative;
-    text-align: center;
-}
-
-.card-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--white);
-    opacity: 0.3;
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    line-height: 1;
-}
-
-/* Contenuto Testuale */
-.text-content {
-    max-width: 800px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-/* TIMELINE STYLES */
+/* Timeline */
 .timeline-container {
     max-width: 900px;
     width: 100%;
@@ -510,7 +75,7 @@ cite {
     line-height: 1.5;
 }
 
-/* QUIZ STYLES */
+/* Quiz Styles */
 .quiz-score {
     font-size: 1.2rem;
     color: var(--white);
@@ -679,62 +244,13 @@ cite {
     line-height: 1.5;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .main-title {
-        font-size: 3.5rem;
-    }
-    
-    .subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .main-nav {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .glass-btn {
-        padding: 1.5rem 1rem;
-    }
-    
-    .section-header h2 {
-        font-size: 2.5rem;
-    }
-    
-    .cards-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .content {
-        padding: 1rem;
-    }
-    
-    .back-btn {
-        top: 1rem;
-        left: 1rem;
-        padding: 0.8rem 1rem;
-    }
-    
-    .glass-card {
-        padding: 2rem 1.5rem;
-    }
-    
-    /* Immagini più piccole su mobile */
-    .floating-image {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .title-container:hover .img-1 {
-        transform: translate(-120px, -80px) scale(1) rotate(-8deg);
-    }
-    
-    .title-container:hover .img-2 {
-        transform: translate(120px, -80px) scale(1) rotate(8deg);
-    }
+/* Rimuovi le immagini fluttuanti se presenti */
+.floating-images {
+    display: none;
+}
 
-    /* Timeline mobile */
+/* Responsive per timeline e quiz */
+@media (max-width: 768px) {
     .timeline::before {
         left: 30px;
     }
@@ -754,7 +270,6 @@ cite {
         margin-left: -20px;
     }
     
-    /* Quiz mobile */
     .quiz-container {
         padding: 1.5rem;
     }
@@ -768,6 +283,10 @@ cite {
         font-size: 0.9rem;
     }
     
+    .main-nav {
+        grid-template-columns: 1fr;
+    }
+    
     .quiz-score {
         font-size: 1rem;
         padding: 0.6rem 1.2rem;
@@ -775,33 +294,10 @@ cite {
 }
 
 @media (max-width: 480px) {
-    .main-title {
-        font-size: 2.8rem;
-    }
-    
-    .section-header h2 {
-        font-size: 2rem;
-    }
-    
-    .btn-icon {
-        font-size: 1.8rem;
-    }
-    
-    .btn-text {
-        font-size: 0.9rem;
-    }
-    
-    .floating-image {
-        width: 80px;
-        height: 80px;
-    }
-
-    /* Timeline mobile piccolo */
     .timeline-item {
         padding-left: 60px;
     }
     
-    /* Quiz mobile piccolo */
     .quiz-container {
         padding: 1rem;
     }
@@ -819,56 +315,5 @@ cite {
     
     .final-message {
         font-size: 1rem;
-    }
-}
-
-/* Scrollbar personalizzata */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--glass-bg);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* Selezione testo */
-::selection {
-    background: rgba(255, 255, 255, 0.2);
-    color: var(--white);
-}
-
-/* Focus per accessibilità */
-.glass-btn:focus,
-.quiz-option:focus,
-.back-btn:focus {
-    outline: 2px solid rgba(255, 255, 255, 0.5);
-    outline-offset: 2px;
-}
-
-/* Animazioni di ingresso per le sezioni */
-.section:not(#home) .content > * {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.section:not(#home) .content > *:nth-child(1) { animation-delay: 0.1s; }
-.section:not(#home) .content > *:nth-child(2) { animation-delay: 0.2s; }
-.section:not(#home) .content > *:nth-child(3) { animation-delay: 0.3s; }
-.section:not(#home) .content > *:nth-child(4) { animation-delay: 0.4s; }
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
