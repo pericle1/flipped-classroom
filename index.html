@@ -31,32 +31,40 @@
             <p class="subtitle">I paradossi che sfidarono la realtà</p>
             
             <nav class="main-nav">
-                <button class="glass-btn" onclick="showSection('vita')">
+                <button class="glass-btn" data-target="vita">
                     <div class="btn-icon">
                         <i class="fas fa-user"></i>
                     </div>
                     <span class="btn-text">Chi era</span>
                 </button>
                 
-                <button class="glass-btn" onclick="showSection('pensiero')">
+                <button class="glass-btn" data-target="pensiero">
                     <div class="btn-icon">
                         <i class="fas fa-brain"></i>
                     </div>
                     <span class="btn-text">Il Pensiero</span>
                 </button>
                 
-                <button class="glass-btn" onclick="showSection('paradossi')">
+                <button class="glass-btn" data-target="paradossi">
                     <div class="btn-icon">
                         <i class="fas fa-infinity"></i>
                     </div>
                     <span class="btn-text">I Paradossi</span>
                 </button>
                 
-                <button class="glass-btn" onclick="showSection('eredita')">
+                <button class="glass-btn" data-target="eredita">
                     <div class="btn-icon">
                         <i class="fas fa-monument"></i>
                     </div>
                     <span class="btn-text">L'Eredità</span>
+                </button>
+                
+                <!-- NUOVO PULSANTE QUIZ -->
+                <button class="glass-btn" data-target="quiz">
+                    <div class="btn-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <span class="btn-text">Quiz</span>
                 </button>
             </nav>
         </div>
@@ -153,7 +161,7 @@
                 <div class="glass-card paradox-card">
                     <div class="card-number">03</div>
                     <h3>La Freccia Immobile</h3>
-                    <p>Una freccia in volo sembra muoversi, ma in ogni singolo istante occupa solo uno spazio pari alla sua lunghezza. Se in ogni istante è ferma, allora è sempre immobile e il suo movimento è un'illusione.</p>
+                    <p>Una freccia in volo sembra muoversi, mas in ogni singolo istante occupa solo uno spazio pari alla sua lunghezza. Se in ogni istante è ferma, allora è sempre immobile e il suo movimento è un'illusione.</p>
                 </div>
             </div>
         </div>
@@ -193,52 +201,59 @@
         </div>
     </section>
 
-    <script>
-        // Funzione semplice per mostrare le sezioni
-        function showSection(sectionId) {
-            console.log('Mostrando sezione:', sectionId);
+    <!-- NUOVA SEZIONE QUIZ -->
+    <section id="quiz" class="section">
+        <div class="content">
+            <button class="back-btn glass-btn" onclick="showSection('home')">
+                <i class="fas fa-arrow-left"></i>
+                <span>Torna alla Home</span>
+            </button>
             
-            // Nascondi tutte le sezioni
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
+            <div class="section-header">
+                <h2>🧠 Quiz su Zenone</h2>
+            </div>
             
-            // Mostra la sezione richiesta
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-        }
+            <div id="quiz-container">
+                <!-- Schermata iniziale -->
+                <div id="quiz-start" class="glass-card">
+                    <h3>Metti alla prova la tua conoscenza</h3>
+                    <p>Rispondi a 5 domande su Zenone e i suoi paradossi. Sei pronto?</p>
+                    <button id="start-quiz" class="glass-btn">Inizia il Quiz</button>
+                </div>
+                
+                <!-- Domande del quiz (nascoste inizialmente) -->
+                <div id="quiz-questions" style="display: none;">
+                    <div class="glass-card">
+                        <div class="quiz-progress">
+                            <span id="current-question">1</span> / <span id="total-questions">5</span>
+                        </div>
+                        <h3 id="question-text">Domanda</h3>
+                        <div id="options-container">
+                            <!-- Le opzioni verranno inserite qui dinamicamente -->
+                        </div>
+                        <button id="next-question" class="glass-btn" style="margin-top: 1.5rem; display: none;">
+                            Prossima Domanda
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Risultati (nascosti inizialmente) -->
+                <div id="quiz-results" style="display: none;">
+                    <div class="glass-card">
+                        <h3>Risultati</h3>
+                        <div id="score-container">
+                            <div class="score-circle">
+                                <span id="score-percentage">0%</span>
+                            </div>
+                            <p id="score-text">Hai totalizzato <strong id="correct-answers">0</strong> su <strong>5</strong> punti</p>
+                        </div>
+                        <button id="restart-quiz" class="glass-btn">Ricomincia il Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Background Slider per Hero
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slide');
-            let currentSlide = 0;
-            
-            function nextSlide() {
-                if (slides.length > 0) {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }
-            }
-            
-            // Cambia slide ogni 5 secondi (solo nella home)
-            setInterval(() => {
-                if (document.getElementById('home').classList.contains('active')) {
-                    nextSlide();
-                }
-            }, 5000);
-
-            // Gestione tasto ESC per tornare alla home
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    showSection('home');
-                }
-            });
-            
-            console.log('Sito Zenone - Caricamento completato');
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
