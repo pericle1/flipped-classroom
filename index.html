@@ -19,9 +19,13 @@
         <div class="glass-overlay"></div>
         
         <div class="content">
-            <!-- Titolo senza effetto hover -->
+            <!-- Titolo con effetto hover -->
             <div class="title-container">
-                <h1 class="main-title">ZENONE</h1>
+                <h1 class="main-title" id="zenone-title">ZENONE</h1>
+                <div class="floating-images">
+                    <div class="floating-image img-1" style="background-image: url('https://cdn-icons-png.flaticon.com/512/4576/4576683.png')"></div>
+                    <div class="floating-image img-2" style="background-image: url('https://images.unsplash.com/photo-1555099962-4199c345e546?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80')"></div>
+                </div>
             </div>
             
             <p class="subtitle">I paradossi che sfidarono la realtà</p>
@@ -53,20 +57,6 @@
                         <i class="fas fa-monument"></i>
                     </div>
                     <span class="btn-text">L'Eredità</span>
-                </button>
-
-                <button class="glass-btn" onclick="showSection('timeline')">
-                    <div class="btn-icon">
-                        <i class="fas fa-history"></i>
-                    </div>
-                    <span class="btn-text">Timeline</span>
-                </button>
-
-                <button class="glass-btn" onclick="showSection('quiz')">
-                    <div class="btn-icon">
-                        <i class="fas fa-puzzle-piece"></i>
-                    </div>
-                    <span class="btn-text">Quiz</span>
                 </button>
             </nav>
         </div>
@@ -157,7 +147,7 @@
                 <div class="glass-card paradox-card">
                     <div class="card-number">02</div>
                     <h3>Achille e la Tartaruga</h3>
-                    <p>Achille, pur essendo il più veloce, non raggiungerà mai la tartaruga se le concede un vantaggio. Ogli volta che Achille raggiunge il punto dove si trovava la tartaruga, questa si sarà spostata un po' più in avanti, costringendolo a coprire infiniti intervalli.</p>
+                    <p>Achille, pur essendo il più veloce, non raggiungerà mai la tartaruga se le concede un vantaggio. Ogni volta che Achille raggiunge il punto dove si trovava la tartaruga, questa si sarà spostata un po' più in avanti, costringendolo a coprire infiniti intervalli.</p>
                 </div>
                 
                 <div class="glass-card paradox-card">
@@ -198,117 +188,6 @@
                         <h4>Il Paradosso del Treno (Einstein)</h4>
                         <p>Due osservatori (uno sul treno in corsa, uno sulla banchina) percepiscono diversamente la simultaneità di due fulmini che cadono alle estremità del treno. Questo dimostra che il tempo non è assoluto, ma <strong>relativo</strong> al sistema di riferimento dell'osservatore.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Nuova Sezione: Timeline -->
-    <section id="timeline" class="section">
-        <div class="content">
-            <button class="back-btn glass-btn" onclick="showSection('home')">
-                <i class="fas fa-arrow-left"></i>
-                <span>Torna alla Home</span>
-            </button>
-            
-            <div class="section-header">
-                <h2>📜 Timeline Storica</h2>
-                <p>L'evoluzione del pensiero dai paradossi di Zenone alla fisica moderna</p>
-            </div>
-            
-            <div class="timeline-container">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">490-430 a.C.</div>
-                        <div class="timeline-content">
-                            <h3>Vita di Zenone</h3>
-                            <p>Zenone di Elea sviluppa i suoi paradossi per difendere le teorie di Parmenide. Secondo Platone, lo stesso Zenone definì il suo scritto come una "difesa della dottrina di Parmenide" [citation:1].</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">IV sec. a.C.</div>
-                        <div class="timeline-content">
-                            <h3>Aristotele e la Dialettica</h3>
-                            <p>Aristotele analizza e critica i paradossi di Zenone nella sua "Fisica" e lo considera il <strong>fondatore della dialettica</strong> come tecnica di confutazione attraverso la discussione [citation:1].</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">XVII sec.</div>
-                        <div class="timeline-content">
-                            <h3>Rivoluzione Scientifica</h3>
-                            <p>Newton e Leibniz sviluppano il <strong>calcolo infinitesimale</strong>, fornendo finalmente gli strumenti matematici per risolvere formalmente i paradossi di Zenone.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">XIX sec.</div>
-                        <div class="timeline-content">
-                            <h3>Matematica Moderna</h3>
-                            <p>Weierstrass e Cantor formalizzano i concetti di <strong>limite e infinito</strong>, fornendo le basi per comprendere le serie convergenti che risolvono i paradossi.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">1905</div>
-                        <div class="timeline-content">
-                            <h3>Einstein e la Relatività</h3>
-                            <p>La teoria della relatività speciale rivoluziona il concetto di tempo e spazio, dimostrando che la simultaneità è <strong>relativa</strong> al sistema di riferimento.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">Oggi</div>
-                        <div class="timeline-content">
-                            <h3>Attualità dei Paradossi</h3>
-                            <p>I paradossi di Zenone continuano a influenzare filosofia, matematica e <strong>fisica quantistica</strong>, dimostrando la loro profonda rilevanza nel pensiero contemporaneo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Nuova Sezione: Quiz Interattivo -->
-    <section id="quiz" class="section">
-        <div class="content">
-            <button class="back-btn glass-btn" onclick="showSection('home')">
-                <i class="fas fa-arrow-left"></i>
-                <span>Torna alla Home</span>
-            </button>
-            
-            <div class="section-header">
-                <h2>🎯 Quiz sui Paradossi</h2>
-                <p class="quiz-score">Punteggio: <span id="score">0</span>/5</p>
-            </div>
-            
-            <div class="quiz-container">
-                <div class="quiz-progress">
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progress-fill"></div>
-                    </div>
-                    <span class="progress-text">Domanda <span id="current-question">1</span>/5</span>
-                </div>
-                
-                <div class="quiz-content">
-                    <div class="question-container">
-                        <h3 id="question-text">Quale di questi NON è un paradosso di Zenone?</h3>
-                    </div>
-                    
-                    <div class="options-container" id="options-container">
-                        <!-- Le opzioni verranno inserite qui dinamicamente -->
-                    </div>
-                    
-                    <div class="quiz-feedback" id="feedback"></div>
-                    
-                    <button class="quiz-next-btn" id="next-btn" onclick="nextQuestion()" style="display: none;">
-                        Prossima Domanda <i class="fas fa-arrow-right"></i>
-                    </button>
-                    
-                    <button class="quiz-restart-btn" id="restart-btn" onclick="restartQuiz()" style="display: none;">
-                        <i class="fas fa-redo"></i> Rifai il Quiz
-                    </button>
                 </div>
             </div>
         </div>
@@ -358,71 +237,8 @@
                 }
             });
             
-            // Inizializza il quiz
-            initQuiz();
-            
             console.log('Sito Zenone - Caricamento completato');
         });
-
-        // QUIZ LOGIC
-        let currentQuestion = 0;
-        let score = 0;
-        let questions = [];
-
-        function initQuiz() {
-            questions = [
-                {
-                    question: "Quale di questi NON è un paradosso di Zenone?",
-                    options: [
-                        "La Dicotomia",
-                        "Achille e la Tartaruga", 
-                        "Il Dilemma del Prigioniero",
-                        "La Freccia Immobile"
-                    ],
-                    correct: 2
-                },
-                {
-                    question: "Qual era lo scopo principale dei paradossi di Zenone?",
-                    options: [
-                        "Dimostrare l'esistenza di Dio",
-                        "Confutare le teorie di Parmenide",
-                        "Difendere la teoria di Parmenide sull'Uno",
-                        "Promuovere il movimento e il cambiamento"
-                    ],
-                    correct: 2
-                },
-                {
-                    question: "Secondo il paradosso di Achille e la Tartaruga:",
-                    options: [
-                        "Achille vince sempre la corsa",
-                        "La tartaruga vince grazie alla sua perseveranza",
-                        "Achille non raggiunge mai la tartaruga",
-                        "La corsa termina in pareggio"
-                    ],
-                    correct: 2
-                },
-                {
-                    question: "Come viene risolto matematicamente il paradosso della Dicotomia?",
-                    options: [
-                        "Con la teoria dei numeri primi",
-                        "Con le serie convergenti",
-                        "Con il calcolo delle probabilità",
-                        "Con la geometria non euclidea"
-                    ],
-                    correct: 1
-                },
-                {
-                    question: "Quale filosofo considerava Zenone l'inventore della dialettica?",
-                    options: [
-                        "Platone",
-                        "Socrate", 
-                        "Aristotele",
-                        "Epicuro"
-                    ],
-                    correct: 2
-                }
-            ];
-            displayQuestion();
-        }
-
-        fun
+    </script>
+</body>
+</html>
